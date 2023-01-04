@@ -1,20 +1,20 @@
-<?xml-stylesheet type="text/xsl" href="http://daoist1037.github.io/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://daoist1037.github.io/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://daoist1037.github.io/categories/</loc>
+    <loc>https://daoist1037.github.io/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://daoist1037.github.io/</loc>
+    <loc>https://daoist1037.github.io/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://daoist1037.github.io/tags/</loc>
+    <loc>https://daoist1037.github.io/tags/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
