@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有文章 - LoveIt</title>
+        <link>https://daoist1037.github.io/posts/</link>
+        <description>所有文章 | LoveIt</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zhilu826@gmail.com (daoist1037)</managingEditor>
+            <webMaster>zhilu826@gmail.com (daoist1037)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 04 Jan 2023 10:46:53 &#43;0800</lastBuildDate><atom:link href="https://daoist1037.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>100 Practice</title>
+    <link>https://daoist1037.github.io/100-practice/</link>
+    <pubDate>Wed, 04 Jan 2023 10:46:53 &#43;0800</pubDate>
+    <author>daoist1037</author>
+    <guid>https://daoist1037.github.io/100-practice/</guid>
+    <description><![CDATA[第1章 vim解决问题的方式 技巧1 结识 .命令 .命令可以重复上次的修改 &gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次]]></description>
+</item>
+</channel>
+</rss>
