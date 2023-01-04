@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://daoist1037.github.io/sitemap.xml
