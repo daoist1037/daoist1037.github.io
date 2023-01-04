@@ -1,24 +1,19 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vim - Tag - daoist1037</title>
+    <title>vim on daoist1037</title>
     <link>https://daoist1037.github.io/tags/vim/</link>
-    <description>vim - Tag - daoist1037</description>
-    <generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 04 Jan 2023 10:46:53 &#43;0800</lastBuildDate><atom:link href="https://daoist1037.github.io/tags/vim/" rel="self" type="application/rss+xml" /><item>
-  <title>100 Practice</title>
-  <link>https://daoist1037.github.io/posts/100-practice/</link>
-  <pubDate>Wed, 04 Jan 2023 10:46:53 &#43;0800</pubDate>
-  <author>Author</author>
-  <guid>https://daoist1037.github.io/posts/100-practice/</guid>
-  <description><![CDATA[第1章 vim解决问题的方式 技巧1 结识 .命令 .命令可以重复上次的修改 &gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。 .命令是一个微型的宏 技巧2 不要自我重复 a命令在当前光标之后添加内容
-a命令在当前行的结尾添加内容
-技巧3 以退为进 f{char}命令让vim查找下一处指定字符出现的位置，如果找到了，就直接把光标移动到那里
-;命令会重复上次f命令所查找的字符
-s命令先删除光标下的字符，然后进入插入模式
-技巧4 执行、重复、回退 @:可以重复任意ex命令
-&amp;重复上次的:substitute命令
-目的 操作 重复 回退 做出一个修改 {edit} . u 在行内查找下一指定字符 f{char}/t{char} ; , 在行内查找上一指定字符 f{char}/t{char} ; , 在文档中查找下一处匹配项 /pattern&lt;cr&gt; n n 在文档中查找上一处匹配项 ?pattern&lt;cr&gt; n n 执行替换 :s/target/replacement &amp; u 执行一系列修改 qx{changes}q @x u 技巧五 查找并手动替换 *命令可以查找当前光标下的单词 技巧六 结识.范式 第2章 普通模式 技巧7 停顿时请移开画笔 技巧8 把撤销单元切成块 技巧9 构造可重复的修改 如果在插入模式中使用了&lt;up&gt;、&lt;down&gt;、&lt;left&gt;、&lt;right&gt;这些光标键，将会产生一个新的撤销块。会对.命令的操作产生影响
-使用更为精准的aw文本对象
-技巧10 用次数做简单的算术运算 &lt;c-a&gt;和&lt;c-x&gt;命令对数字执行加和减操作。在不带数字执行时，它们会逐个加减，但如果带一个次数前缀，那么就可以用它们加减任意整数。 如果光标不在数字上，会把当前光标之上或之后的数值加上[count] vim会把0开头的数字解释为八进制值，可以加入set nrformats=将所有数字设为十进制 技巧11 能够重复，就别用次数 技巧12 双剑合璧，天下无敌 命令 用途 c 修改 d 删除 y 复制到寄存器 g~ 反转大小写 （可视化模式下） gu 转为小写 gu 转为大写 &gt; 增加缩进 &lt; 减小缩进 = 自动缩进 !]]></description>
-</item>
-</channel>
+    <description>Recent content in vim on daoist1037</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 04 Jan 2023 10:46:53 +0800</lastBuildDate><atom:link href="https://daoist1037.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>100 Practice</title>
+      <link>https://daoist1037.github.io/post/100-practice/</link>
+      <pubDate>Wed, 04 Jan 2023 10:46:53 +0800</pubDate>
+      
+      <guid>https://daoist1037.github.io/post/100-practice/</guid>
+      <description>vim skills</description>
+    </item>
+    
+  </channel>
 </rss>

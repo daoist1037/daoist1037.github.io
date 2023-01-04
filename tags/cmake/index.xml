@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cmake on daoist1037</title>
+    <link>https://daoist1037.github.io/tags/cmake/</link>
+    <description>Recent content in cmake on daoist1037</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 04 Jan 2023 10:46:53 +0800</lastBuildDate><atom:link href="https://daoist1037.github.io/tags/cmake/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Qt上CMakeLists应用</title>
+      <link>https://daoist1037.github.io/post/qt%E4%B8%8Acmakelists%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Wed, 04 Jan 2023 10:46:53 +0800</pubDate>
+      
+      <guid>https://daoist1037.github.io/post/qt%E4%B8%8Acmakelists%E5%BA%94%E7%94%A8/</guid>
+      <description>CMakeLists</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,409 +1,238 @@
 <!DOCTYPE html>
-<html itemscope itemtype="http://schema.org/WebPage" lang="">
-  <head>
-    
+<html lang="">
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-    <meta name="robots" content="noodp" />
-    <title>100 Practice - daoist1037</title><meta name="author" content="">
-<meta name="author-link" content="">
-<meta name="description" content="第1章 vim解决问题的方式 技巧1 结识 .命令 .命令可以重复上次的修改 &gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。 .命令是一个微型的宏 技巧2 不要自我重复 a命令在当前光标之后添加内容
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://daoist1037.github.io/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://daoist1037.github.io/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://daoist1037.github.io/css/github.min.css' />
+    <link rel="stylesheet" href='https://daoist1037.github.io/css/github-style.css' />
+    <link rel="stylesheet" href='https://daoist1037.github.io/css/light.css' />
+    <link rel="stylesheet" href='https://daoist1037.github.io/css/dark.css' />
+    <link rel="stylesheet" href='https://daoist1037.github.io/css/syntax.css' />
+    <title>100 Practice - daoist1037</title>
+    
+    <link rel="icon" type="image/x-icon" href='/img/gear.png'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    <meta name="description"
+  content="第1章 vim解决问题的方式 技巧1 结识 .命令 .命令可以重复上次的修改 &amp;gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。 .命令是一个微型的宏 技巧2 不要自我重复 a命令在当前光标之后添加内容
 a命令在当前行的结尾添加内容
 技巧3 以退为进 f{char}命令让vim查找下一处指定字符出现的位置，如果找到了，就直接把光标移动到那里
 ;命令会重复上次f命令所查找的字符
 s命令先删除光标下的字符，然后进入插入模式
 技巧4 执行、重复、回退 @:可以重复任意ex命令
-&amp;重复上次的:substitute命令
-目的 操作 重复 回退 做出一个修改 {edit} . u 在行内查找下一指定字符 f{char}/t{char} ; , 在行内查找上一指定字符 f{char}/t{char} ; , 在文档中查找下一处匹配项 /pattern&lt;cr&gt; n n 在文档中查找上一处匹配项 ?pattern&lt;cr&gt; n n 执行替换 :s/target/replacement &amp; u 执行一系列修改 qx{changes}q @x u 技巧五 查找并手动替换 *命令可以查找当前光标下的单词 技巧六 结识.范式 第2章 普通模式 技巧7 停顿时请移开画笔 技巧8 把撤销单元切成块 技巧9 构造可重复的修改 如果在插入模式中使用了&lt;up&gt;、&lt;down&gt;、&lt;left&gt;、&lt;right&gt;这些光标键，将会产生一个新的撤销块。会对.命令的操作产生影响
+&amp;amp;重复上次的:substitute命令
+目的 操作 重复 回退 做出一个修改 {edit} . u 在行内查找下一指定字符 f{char}/t{char} ; , 在行内查找上一指定字符 f{char}/t{char} ; , 在文档中查找下一处匹配项 /pattern&amp;lt;cr&amp;gt; n n 在文档中查找上一处匹配项 ?pattern&amp;lt;cr&amp;gt; n n 执行替换 :s/target/replacement &amp;amp; u 执行一系列修改 qx{changes}q @x u 技巧五 查找并手动替换 *命令可以查找当前光标下的单词 技巧六 结识.范式 第2章 普通模式 技巧7 停顿时请移开画笔 技巧8 把撤销单元切成块 技巧9 构造可重复的修改 如果在插入模式中使用了&amp;lt;up&amp;gt;、&amp;lt;down&amp;gt;、&amp;lt;left&amp;gt;、&amp;lt;right&amp;gt;这些光标键，将会产生一个新的撤销块。会对.命令的操作产生影响
 使用更为精准的aw文本对象
-技巧10 用次数做简单的算术运算 &lt;c-a&gt;和&lt;c-x&gt;命令对数字执行加和减操作。在不带数字执行时，它们会逐个加减，但如果带一个次数前缀，那么就可以用它们加减任意整数。 如果光标不在数字上，会把当前光标之上或之后的数值加上[count] vim会把0开头的数字解释为八进制值，可以加入set nrformats=将所有数字设为十进制 技巧11 能够重复，就别用次数 技巧12 双剑合璧，天下无敌 命令 用途 c 修改 d 删除 y 复制到寄存器 g~ 反转大小写 （可视化模式下） gu 转为小写 gu 转为大写 &gt; 增加缩进 &lt; 减小缩进 = 自动缩进 !" /><meta name="keywords" content='vim' /><meta itemprop="name" content="100 Practice">
-<meta itemprop="description" content="第1章 vim解决问题的方式 技巧1 结识 .命令 .命令可以重复上次的修改 &gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。 .命令是一个微型的宏 技巧2 不要自我重复 a命令在当前光标之后添加内容
+技巧10 用次数做简单的算术运算 &amp;lt;c-a&amp;gt;和&amp;lt;c-x&amp;gt;命令对数字执行加和减操作。在不带数字执行时，它们会逐个加减，但如果带一个次数前缀，那么就可以用它们加减任意整数。 如果光标不在数字上，会把当前光标之上或之后的数值加上[count] vim会把0开头的数字解释为八进制值，可以加入set nrformats=将所有数字设为十进制 技巧11 能够重复，就别用次数 技巧12 双剑合璧，天下无敌 命令 用途 c 修改 d 删除 y 复制到寄存器 g~ 反转大小写 （可视化模式下） gu 转为小写 gu 转为大写 &amp;gt; 增加缩进 &amp;lt; 减小缩进 = 自动缩进 !" />
+<meta name="keywords"
+  content='blog, google analytics' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://daoist1037.github.io/posts/100-practice/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="100 Practice - daoist1037" />
+<meta name="twitter:description"
+  content="第1章 vim解决问题的方式 技巧1 结识 .命令 .命令可以重复上次的修改 &amp;gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。 .命令是一个微型的宏 技巧2 不要自我重复 a命令在当前光标之后添加内容
 a命令在当前行的结尾添加内容
 技巧3 以退为进 f{char}命令让vim查找下一处指定字符出现的位置，如果找到了，就直接把光标移动到那里
 ;命令会重复上次f命令所查找的字符
 s命令先删除光标下的字符，然后进入插入模式
 技巧4 执行、重复、回退 @:可以重复任意ex命令
-&amp;重复上次的:substitute命令
-目的 操作 重复 回退 做出一个修改 {edit} . u 在行内查找下一指定字符 f{char}/t{char} ; , 在行内查找上一指定字符 f{char}/t{char} ; , 在文档中查找下一处匹配项 /pattern&lt;cr&gt; n n 在文档中查找上一处匹配项 ?pattern&lt;cr&gt; n n 执行替换 :s/target/replacement &amp; u 执行一系列修改 qx{changes}q @x u 技巧五 查找并手动替换 *命令可以查找当前光标下的单词 技巧六 结识.范式 第2章 普通模式 技巧7 停顿时请移开画笔 技巧8 把撤销单元切成块 技巧9 构造可重复的修改 如果在插入模式中使用了&lt;up&gt;、&lt;down&gt;、&lt;left&gt;、&lt;right&gt;这些光标键，将会产生一个新的撤销块。会对.命令的操作产生影响
+&amp;amp;重复上次的:substitute命令
+目的 操作 重复 回退 做出一个修改 {edit} . u 在行内查找下一指定字符 f{char}/t{char} ; , 在行内查找上一指定字符 f{char}/t{char} ; , 在文档中查找下一处匹配项 /pattern&amp;lt;cr&amp;gt; n n 在文档中查找上一处匹配项 ?pattern&amp;lt;cr&amp;gt; n n 执行替换 :s/target/replacement &amp;amp; u 执行一系列修改 qx{changes}q @x u 技巧五 查找并手动替换 *命令可以查找当前光标下的单词 技巧六 结识.范式 第2章 普通模式 技巧7 停顿时请移开画笔 技巧8 把撤销单元切成块 技巧9 构造可重复的修改 如果在插入模式中使用了&amp;lt;up&amp;gt;、&amp;lt;down&amp;gt;、&amp;lt;left&amp;gt;、&amp;lt;right&amp;gt;这些光标键，将会产生一个新的撤销块。会对.命令的操作产生影响
 使用更为精准的aw文本对象
-技巧10 用次数做简单的算术运算 &lt;c-a&gt;和&lt;c-x&gt;命令对数字执行加和减操作。在不带数字执行时，它们会逐个加减，但如果带一个次数前缀，那么就可以用它们加减任意整数。 如果光标不在数字上，会把当前光标之上或之后的数值加上[count] vim会把0开头的数字解释为八进制值，可以加入set nrformats=将所有数字设为十进制 技巧11 能够重复，就别用次数 技巧12 双剑合璧，天下无敌 命令 用途 c 修改 d 删除 y 复制到寄存器 g~ 反转大小写 （可视化模式下） gu 转为小写 gu 转为大写 &gt; 增加缩进 &lt; 减小缩进 = 自动缩进 !"><meta itemprop="datePublished" content="2023-01-04T10:46:53+08:00" />
-<meta itemprop="dateModified" content="2023-01-04T10:46:53+08:00" />
-<meta itemprop="wordCount" content="1010">
-<meta itemprop="keywords" content="vim," /><meta property="og:title" content="100 Practice" />
-<meta property="og:description" content="第1章 vim解决问题的方式 技巧1 结识 .命令 .命令可以重复上次的修改 &gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。 .命令是一个微型的宏 技巧2 不要自我重复 a命令在当前光标之后添加内容
-a命令在当前行的结尾添加内容
-技巧3 以退为进 f{char}命令让vim查找下一处指定字符出现的位置，如果找到了，就直接把光标移动到那里
-;命令会重复上次f命令所查找的字符
-s命令先删除光标下的字符，然后进入插入模式
-技巧4 执行、重复、回退 @:可以重复任意ex命令
-&amp;重复上次的:substitute命令
-目的 操作 重复 回退 做出一个修改 {edit} . u 在行内查找下一指定字符 f{char}/t{char} ; , 在行内查找上一指定字符 f{char}/t{char} ; , 在文档中查找下一处匹配项 /pattern&lt;cr&gt; n n 在文档中查找上一处匹配项 ?pattern&lt;cr&gt; n n 执行替换 :s/target/replacement &amp; u 执行一系列修改 qx{changes}q @x u 技巧五 查找并手动替换 *命令可以查找当前光标下的单词 技巧六 结识.范式 第2章 普通模式 技巧7 停顿时请移开画笔 技巧8 把撤销单元切成块 技巧9 构造可重复的修改 如果在插入模式中使用了&lt;up&gt;、&lt;down&gt;、&lt;left&gt;、&lt;right&gt;这些光标键，将会产生一个新的撤销块。会对.命令的操作产生影响
-使用更为精准的aw文本对象
-技巧10 用次数做简单的算术运算 &lt;c-a&gt;和&lt;c-x&gt;命令对数字执行加和减操作。在不带数字执行时，它们会逐个加减，但如果带一个次数前缀，那么就可以用它们加减任意整数。 如果光标不在数字上，会把当前光标之上或之后的数值加上[count] vim会把0开头的数字解释为八进制值，可以加入set nrformats=将所有数字设为十进制 技巧11 能够重复，就别用次数 技巧12 双剑合璧，天下无敌 命令 用途 c 修改 d 删除 y 复制到寄存器 g~ 反转大小写 （可视化模式下） gu 转为小写 gu 转为大写 &gt; 增加缩进 &lt; 减小缩进 = 自动缩进 !" />
+技巧10 用次数做简单的算术运算 &amp;lt;c-a&amp;gt;和&amp;lt;c-x&amp;gt;命令对数字执行加和减操作。在不带数字执行时，它们会逐个加减，但如果带一个次数前缀，那么就可以用它们加减任意整数。 如果光标不在数字上，会把当前光标之上或之后的数值加上[count] vim会把0开头的数字解释为八进制值，可以加入set nrformats=将所有数字设为十进制 技巧11 能够重复，就别用次数 技巧12 双剑合璧，天下无敌 命令 用途 c 修改 d 删除 y 复制到寄存器 g~ 反转大小写 （可视化模式下） gu 转为小写 gu 转为大写 &amp;gt; 增加缩进 &amp;lt; 减小缩进 = 自动缩进 !" />
+<meta name="twitter:site" content="https://daoist1037.github.io" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://daoist1037.github.io">
+
+
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daoist1037.github.io/posts/100-practice/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-01-04T10:46:53+08:00" />
-<meta property="article:modified_time" content="2023-01-04T10:46:53+08:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="100 Practice"/>
-<meta name="twitter:description" content="第1章 vim解决问题的方式 技巧1 结识 .命令 .命令可以重复上次的修改 &gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。 .命令是一个微型的宏 技巧2 不要自我重复 a命令在当前光标之后添加内容
+<meta property="og:title" content="100 Practice - daoist1037">
+<meta property="og:description"
+  content="第1章 vim解决问题的方式 技巧1 结识 .命令 .命令可以重复上次的修改 &amp;gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。 .命令是一个微型的宏 技巧2 不要自我重复 a命令在当前光标之后添加内容
 a命令在当前行的结尾添加内容
 技巧3 以退为进 f{char}命令让vim查找下一处指定字符出现的位置，如果找到了，就直接把光标移动到那里
 ;命令会重复上次f命令所查找的字符
 s命令先删除光标下的字符，然后进入插入模式
 技巧4 执行、重复、回退 @:可以重复任意ex命令
-&amp;重复上次的:substitute命令
-目的 操作 重复 回退 做出一个修改 {edit} . u 在行内查找下一指定字符 f{char}/t{char} ; , 在行内查找上一指定字符 f{char}/t{char} ; , 在文档中查找下一处匹配项 /pattern&lt;cr&gt; n n 在文档中查找上一处匹配项 ?pattern&lt;cr&gt; n n 执行替换 :s/target/replacement &amp; u 执行一系列修改 qx{changes}q @x u 技巧五 查找并手动替换 *命令可以查找当前光标下的单词 技巧六 结识.范式 第2章 普通模式 技巧7 停顿时请移开画笔 技巧8 把撤销单元切成块 技巧9 构造可重复的修改 如果在插入模式中使用了&lt;up&gt;、&lt;down&gt;、&lt;left&gt;、&lt;right&gt;这些光标键，将会产生一个新的撤销块。会对.命令的操作产生影响
+&amp;amp;重复上次的:substitute命令
+目的 操作 重复 回退 做出一个修改 {edit} . u 在行内查找下一指定字符 f{char}/t{char} ; , 在行内查找上一指定字符 f{char}/t{char} ; , 在文档中查找下一处匹配项 /pattern&amp;lt;cr&amp;gt; n n 在文档中查找上一处匹配项 ?pattern&amp;lt;cr&amp;gt; n n 执行替换 :s/target/replacement &amp;amp; u 执行一系列修改 qx{changes}q @x u 技巧五 查找并手动替换 *命令可以查找当前光标下的单词 技巧六 结识.范式 第2章 普通模式 技巧7 停顿时请移开画笔 技巧8 把撤销单元切成块 技巧9 构造可重复的修改 如果在插入模式中使用了&amp;lt;up&amp;gt;、&amp;lt;down&amp;gt;、&amp;lt;left&amp;gt;、&amp;lt;right&amp;gt;这些光标键，将会产生一个新的撤销块。会对.命令的操作产生影响
 使用更为精准的aw文本对象
-技巧10 用次数做简单的算术运算 &lt;c-a&gt;和&lt;c-x&gt;命令对数字执行加和减操作。在不带数字执行时，它们会逐个加减，但如果带一个次数前缀，那么就可以用它们加减任意整数。 如果光标不在数字上，会把当前光标之上或之后的数值加上[count] vim会把0开头的数字解释为八进制值，可以加入set nrformats=将所有数字设为十进制 技巧11 能够重复，就别用次数 技巧12 双剑合璧，天下无敌 命令 用途 c 修改 d 删除 y 复制到寄存器 g~ 反转大小写 （可视化模式下） gu 转为小写 gu 转为大写 &gt; 增加缩进 &lt; 减小缩进 = 自动缩进 !"/>
-<meta name="application-name" content="FixIt">
-<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://daoist1037.github.io/posts/100-practice/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "100 Practice",
-    "inLanguage": "",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https:\/\/daoist1037.github.io\/posts\/100-practice\/"
-    },"genre": "posts","keywords": "vim","wordcount":  1010 ,
-    "url": "https:\/\/daoist1037.github.io\/posts\/100-practice\/","datePublished": "2023-01-04T10:46:53+08:00","dateModified": "2023-01-04T10:46:53+08:00","publisher": {
-      "@type": "Organization",
-      "name": ""},"author": {
-        "@type": "Person",
-        "name": "Author"
-      },"description": ""
-  }
-  </script></head>
-  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
-  <div class="header-wrapper">
-    <div class="header-title">
-      <a href="/" title="daoist1037"><span class="header-title-text">daoist1037</span></a><span class="header-subtitle"></span></div>
-    <nav>
-      <ul class="menu"><li class="menu-item">
-              <a
-                class="menu-link"
-                href="/posts/"
-                
-                
-              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Posts</a></li><li class="menu-item">
-              <a
-                class="menu-link"
-                href="/categories/"
-                
-                
-              ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li class="menu-item">
-              <a
-                class="menu-link"
-                href="/tags/"
-                
-                
-              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
-            <input type="text" placeholder="Search titles or contents ..." id="search-input-desktop">
-            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
-            </a>
-            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
-            </a>
-            <span class="search-button search-loading" id="search-loading-desktop">
-              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-            </span>
-          </li><li class="menu-item theme-switch" title="Switch Theme">
-          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header><header class="mobile animate__faster" id="header-mobile">
-  <div class="header-container">
-    <div class="header-wrapper">
-      <div class="header-title">
-        <a href="/" title="daoist1037"><span class="header-title-text">daoist1037</span></a><span class="header-subtitle"></span></div>
-      <div class="menu-toggle" id="menu-toggle-mobile">
-        <span></span><span></span><span></span>
+技巧10 用次数做简单的算术运算 &amp;lt;c-a&amp;gt;和&amp;lt;c-x&amp;gt;命令对数字执行加和减操作。在不带数字执行时，它们会逐个加减，但如果带一个次数前缀，那么就可以用它们加减任意整数。 如果光标不在数字上，会把当前光标之上或之后的数值加上[count] vim会把0开头的数字解释为八进制值，可以加入set nrformats=将所有数字设为十进制 技巧11 能够重复，就别用次数 技巧12 双剑合璧，天下无敌 命令 用途 c 修改 d 删除 y 复制到寄存器 g~ 反转大小写 （可视化模式下） gu 转为小写 gu 转为大写 &amp;gt; 增加缩进 &amp;lt; 减小缩进 = 自动缩进 !" />
+<meta property="og:url" content="https://daoist1037.github.io/posts/100-practice/" />
+<meta property="og:site_name" content="100 Practice" />
+<meta property="og:image"
+  content="https://daoist1037.github.io">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2023-01-04 10:46:53 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://daoist1037.github.io">
+        <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://daoist1037.github.io">
+            </label>
+          </form>
+        </div>
       </div>
     </div>
-    <nav>
-      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
-            <div class="search mobile" id="search-mobile">
-              <input type="text" placeholder="Search titles or contents ..." id="search-input-mobile">
-              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
-              </a>
-              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
-              </a>
-              <span class="search-button search-loading" id="search-loading-mobile">
-                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-              </span>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://daoist1037.github.io">
+        <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+          width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+  
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://daoist1037.github.io">
+                  <img class=" avatar-user"
+                    src="https://daoist1037.github.io/images/avatar.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://daoist1037.github.io">daoist1037</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://daoist1037.github.io/posts/100-practice/">100 Practice</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Wed, 04 Jan 2023 10:46:53 &#43;0800"
+                    class="no-wrap">
+                    Wed, 04 Jan 2023 10:46:53 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Wed, 04 Jan 2023 10:46:53 &#43;0800"
+                    class="no-wrap">
+                    Wed, 04 Jan 2023 10:46:53 &#43;0800</relative-time>
+                  
+                </div>
+              </div>
             </div>
-            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-              Cancel
-            </a>
-          </li><li
-              class="menu-item"
-            ><a
-                  class="menu-link"
-                  href="/posts/"
-                  
-                  
-                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Posts</a></li><li
-              class="menu-item"
-            ><a
-                  class="menu-link"
-                  href="/categories/"
-                  
-                  
-                ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li
-              class="menu-item"
-            ><a
-                  class="menu-link"
-                  href="/tags/"
-                  
-                  
-                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item theme-switch" title="Switch Theme">
-          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-        </li></ul>
-    </nav>
-  </div>
-</header><div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-  </div>
-  <div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-  </div><main class="container" data-page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">Contents&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
-      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
-
-  <aside class="aside-custom">
-    </aside>
-
-  <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX">
-        <span>100 Practice</span>
-      </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><span class="author"><img
-    class="lazyload avatar"
-    src="/svg/loading.min.svg"
-    data-src="https://avatars.githubusercontent.com/u/61111762?v=4"
-    data-srcset="https://avatars.githubusercontent.com/u/61111762?v=4, https://avatars.githubusercontent.com/u/61111762?v=4 1.5x, https://avatars.githubusercontent.com/u/61111762?v=4 2x"
-    data-sizes="auto"
-    alt="Anonymous"
-    title="Anonymous"/>&nbsp;Anonymous</span></span></div>
-      <div class="post-meta-line"><span title=2023-01-04&#32;10:46:53><i class="fa-regular fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-04">2023-01-04</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i> 1010 words</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw" aria-hidden="true"></i> 5 minutes</span>&nbsp;</div>
-    </div><div class="details toc" id="toc-static" data-kept="false">
-        <div class="details-summary toc-title">
-          <span>Contents</span>
-          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+          </div>
         </div>
-        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#第1章-vim解决问题的方式">第1章 vim解决问题的方式</a>
-      <ul>
-        <li><a href="#技巧1-结识-命令">技巧1 结识 <code>.</code>命令</a></li>
-        <li><a href="#技巧2-不要自我重复">技巧2 不要自我重复</a></li>
-        <li><a href="#技巧3-以退为进">技巧3 以退为进</a></li>
-        <li><a href="#技巧4-执行重复回退">技巧4 执行、重复、回退</a></li>
-        <li><a href="#技巧五-查找并手动替换">技巧五 查找并手动替换</a></li>
-        <li><a href="#技巧六-结识范式">技巧六 结识<code>.</code>范式</a></li>
-      </ul>
-    </li>
-    <li><a href="#第2章-普通模式">第2章 普通模式</a>
-      <ul>
-        <li><a href="#技巧7-停顿时请移开画笔">技巧7 停顿时请移开画笔</a></li>
-        <li><a href="#技巧8-把撤销单元切成块">技巧8 把撤销单元切成块</a></li>
-        <li><a href="#技巧9-构造可重复的修改">技巧9 构造可重复的修改</a></li>
-        <li><a href="#技巧10-用次数做简单的算术运算">技巧10 用次数做简单的算术运算</a></li>
-        <li><a href="#技巧11-能够重复就别用次数">技巧11 能够重复，就别用次数</a></li>
-        <li><a href="#技巧12-双剑合璧天下无敌">技巧12 双剑合璧，天下无敌</a></li>
-      </ul>
-    </li>
-    <li><a href="#第3章-插入模式">第3章 插入模式</a>
-      <ul>
-        <li><a href="#技巧13-在插入模式中可即时更正错误">技巧13 在插入模式中可即时更正错误</a></li>
-        <li><a href="#技巧14-返回普通模式">技巧14 返回普通模式</a></li>
-        <li><a href="#技巧15-不离开插入模式粘贴寄存器中的文本">技巧15 不离开插入模式，粘贴寄存器中的文本</a></li>
-        <li><a href="#技巧16-随时随地做运算">技巧16 随时随地做运算</a></li>
-        <li><a href="#技巧17-用字符编码插入非常用字符">技巧17 用字符编码插入非常用字符</a></li>
-        <li><a href="#技巧18-用二合字母插入非常用字符">技巧18 用二合字母插入非常用字符</a></li>
-        <li><a href="#技巧19-用替换模式替换已有文本">技巧19 用替换模式替换已有文本</a></li>
-      </ul>
-    </li>
-    <li><a href="#第4章-可视化模式">第4章 可视化模式</a>
-      <ul>
-        <li><a href="#技巧20-深入理解可视化模式">技巧20 深入理解可视化模式</a></li>
-        <li><a href="#技巧21-选择高亮选区">技巧21 选择高亮选区</a></li>
-        <li><a href="#技巧22-重复执行面向行的可视命令">技巧22 重复执行面向行的可视命令</a></li>
-        <li><a href="#技巧23-只要可能最好用操作符命令而不是可视命令">技巧23 只要可能，最好用操作符命令，而不是可视命令</a></li>
-        <li><a href="#技巧24-面向列块的可视模式编辑表格数据">技巧24 面向列块的可视模式编辑表格数据</a></li>
-        <li><a href="#技巧25-修改列文本">技巧25 修改列文本</a></li>
-        <li><a href="#技巧26-在长短不一的高亮块后添加文本">技巧26 在长短不一的高亮块后添加文本</a></li>
-      </ul>
-    </li>
-    <li><a href="#第5章-命令行模式">第5章 命令行模式</a>
-      <ul>
-        <li><a href="#技巧27-结识vim的命令行模式">技巧27 结识Vim的命令行模式</a></li>
-        <li><a href="#技巧28-在一行或多个连续行上执行命令">技巧28 在一行或多个连续行上执行命令</a></li>
-        <li><a href="#技巧29-使用-t-和-m-命令复制和移动">技巧29 使用 <code>:t</code> 和 <code>:m</code> 命令复制和移动</a></li>
-        <li><a href="#技巧30-在指定范围上执行普通模式命令">技巧30 在指定范围上执行普通模式命令</a></li>
-        <li><a href="#技巧31-重复上次的ex命令">技巧31 重复上次的EX命令</a></li>
-        <li><a href="#技巧32-自动补全ex命令">技巧32 自动补全Ex命令</a></li>
-        <li><a href="#技巧33-把当前单词插入命令行">技巧33 把当前单词插入命令行</a></li>
-        <li><a href="#技巧34-回溯历史命令">技巧34 回溯历史命令</a></li>
-        <li><a href="#技巧35-运行shell命令">技巧35 运行shell命令</a></li>
-      </ul>
-    </li>
-    <li><a href="#第6章-管理多个文件">第6章 管理多个文件</a>
-      <ul>
-        <li><a href="#技巧36-用缓冲区列表管理打开的文件">技巧36 用缓冲区列表管理打开的文件</a></li>
-        <li><a href="#技巧37-用参数列表将缓冲区分组">技巧37 用参数列表将缓冲区分组</a></li>
-        <li><a href="#技巧38-管理缓冲区列表">技巧38 管理缓冲区列表</a></li>
-        <li><a href="#技巧39-将工作区切分成窗口">技巧39 将工作区切分成窗口</a></li>
-        <li><a href="#技巧40-用标签页将窗口分组">技巧40 用标签页将窗口分组</a></li>
-      </ul>
-    </li>
-    <li><a href="#第7章-打开及保存文件">第7章 打开及保存文件</a>
-      <ul>
-        <li><a href="#技巧41-用-edit-命令打开文件">技巧41 用 :edit 命令打开文件</a></li>
-        <li><a href="#技巧42-使用-find-打开文件">技巧42 使用 :find 打开文件</a></li>
-        <li><a href="#技巧43-使用-netrw-管理文件系统">技巧43 使用 netrw 管理文件系统</a></li>
-        <li><a href="#技巧44-把文件保存到不存在的目录中">技巧44 把文件保存到不存在的目录中</a></li>
-        <li><a href="#技巧45-以超级用户权限保存文件">技巧45 以超级用户权限保存文件</a></li>
-      </ul>
-    </li>
-    <li><a href="#第8章-用动作命令在文档中移动">第8章 用动作命令在文档中移动</a>
-      <ul>
-        <li><a href="#技巧46-让手指保持在本位行">技巧46 让手指保持在本位行</a></li>
-        <li><a href="#技巧47-区分实际行与屏幕行">技巧47 区分实际行与屏幕行</a></li>
-        <li><a href="#技巧48-基于单词的移动">技巧48 基于单词的移动</a></li>
-        <li><a href="#技巧49-对字符进行查找">技巧49 对字符进行查找</a></li>
-        <li><a href="#技巧50-通过查找进行移动">技巧50 通过查找进行移动</a></li>
-        <li><a href="#技巧51-用精确的文本对象选择区">技巧51 用精确的文本对象选择区</a></li>
-        <li><a href="#技巧52-删除周边修改内部">技巧52 删除周边，修改内部</a></li>
-        <li><a href="#技巧53-设置位置标记以便快速跳回">技巧53 设置位置标记，以便快速跳回</a></li>
-        <li><a href="#技巧54-在匹配括号间跳转">技巧54 在匹配括号间跳转</a></li>
-      </ul>
-    </li>
-    <li><a href="#第9章-在文件间跳转">第9章 在文件间跳转</a>
-      <ul>
-        <li><a href="#技巧55-遍历跳转列表">技巧55 遍历跳转列表</a></li>
-        <li><a href="#技巧56-遍历改变列表">技巧56 遍历改变列表</a></li>
-        <li><a href="#技巧57-跳转到光标下的文件">技巧57 跳转到光标下的文件</a></li>
-        <li><a href="#技巧58-用全局位置标记在文件间快速跳转">技巧58 用全局位置标记在文件间快速跳转</a></li>
-      </ul>
-    </li>
-    <li><a href="#第10章-复制与粘贴">第10章 复制与粘贴</a>
-      <ul>
-        <li><a href="#技巧59-用无名寄存器实现删除复制与粘贴操作">技巧59 用无名寄存器实现删除、复制与粘贴操作</a></li>
-        <li><a href="#技巧60-深入理解vim寄存器">技巧60 深入理解Vim寄存器</a></li>
-        <li><a href="#技巧61-用寄存器中的内容替换高亮选区的文本">技巧61 用寄存器中的内容替换高亮选区的文本</a></li>
-        <li><a href="#技巧62-把寄存器的内容粘贴出来">技巧62 把寄存器的内容粘贴出来</a></li>
-        <li><a href="#技巧63-与系统剪贴板进行交互">技巧63 与系统剪贴板进行交互</a></li>
-      </ul>
-    </li>
-    <li><a href="#第11章-宏">第11章 宏</a>
-      <ul>
-        <li><a href="#技巧64-宏的读取与执行">技巧64 宏的读取与执行</a></li>
-        <li><a href="#技巧65-规范光标位置直达目标以及中止宏">技巧65 规范光标位置、直达目标以及中止宏</a></li>
-        <li><a href="#技巧66-加次数回放宏">技巧66 加次数回放宏</a></li>
-        <li><a href="#技巧67-在连续的文本行上重复修改">技巧67 在连续的文本行上重复修改</a></li>
-        <li><a href="#技巧68-给宏追加命令">技巧68 给宏追加命令</a></li>
-        <li><a href="#技巧69-在一组文件中执行宏">技巧69 在一组文件中执行宏</a></li>
-        <li><a href="#技巧70-用迭代求值的方式给列表编号">技巧70 用迭代求值的方式给列表编号</a></li>
-        <li><a href="#技巧71-编辑宏的内容">技巧71 编辑宏的内容</a></li>
-      </ul>
-    </li>
-    <li><a href="#第12章-按模式匹配及按原义匹配">第12章 按模式匹配及按原义匹配</a>
-      <ul>
-        <li><a href="#技巧72-调整查找模式的大小写敏感性">技巧72 调整查找模式的大小写敏感性</a></li>
-        <li><a href="#技巧73-按正则表达式查找时使用v模式开关">技巧73 按正则表达式查找时，使用\v模式开关</a></li>
-        <li><a href="#技巧74-按原义查找文本时使用v原义开关">技巧74 按原义查找文本时，使用\V原义开关</a></li>
-        <li><a href="#技巧75-使用圆括号捕获子匹配">技巧75 使用圆括号捕获子匹配</a></li>
-        <li><a href="#技巧76-界定单词的边界">技巧76 界定单词的边界</a></li>
-        <li><a href="#技巧77-界定匹配的边界">技巧77 界定匹配的边界</a></li>
-        <li><a href="#技巧78-转义问题字符">技巧78 转义问题字符</a></li>
-      </ul>
-    </li>
-    <li><a href="#第13章-查找">第13章 查找</a>
-      <ul>
-        <li><a href="#技巧79-结识查找命令">技巧79 结识查找命令</a></li>
-        <li><a href="#技巧80-高亮查找匹配">技巧80 高亮查找匹配</a></li>
-        <li><a href="#技巧81-在执行查找前预览第一处匹配">技巧81 在执行查找前预览第一处匹配</a></li>
-        <li><a href="#技巧82-统计当前模式的匹配个数">技巧82 统计当前模式的匹配个数</a></li>
-        <li><a href="#技巧83-将光标偏移到查找匹配的结尾">技巧83 将光标偏移到查找匹配的结尾</a></li>
-        <li><a href="#技巧84-对完整的查找匹配进行操作">技巧84 对完整的查找匹配进行操作</a></li>
-        <li><a href="#技巧85-利用查找历史迭代完成复杂的模式">技巧85 利用查找历史，迭代完成复杂的模式</a></li>
-        <li><a href="#技巧86-查找当前高亮选区中的文本">技巧86 查找当前高亮选区中的文本</a></li>
-      </ul>
-    </li>
-    <li><a href="#第14章-替换">第14章 替换</a>
-      <ul>
-        <li><a href="#技巧87-结识substitute命令">技巧87 结识substitute命令</a></li>
-        <li><a href="#技巧88-在文件范围内查找并替换每一处匹配">技巧88 在文件范围内查找并替换每一处匹配</a></li>
-        <li><a href="#技巧89-手动控制每一次替换操作">技巧89 手动控制每一次替换操作</a></li>
-        <li><a href="#技巧90-重用上次的查找模式">技巧90 重用上次的查找模式</a></li>
-        <li><a href="#技巧91-用寄存器的内容替换">技巧91 用寄存器的内容替换</a></li>
-        <li><a href="#技巧92-重复上一次substitute命令">技巧92 重复上一次substitute命令</a></li>
-        <li><a href="#技巧93-使用子匹配重排csv文件的字段">技巧93 使用子匹配重排CSV文件的字段</a></li>
-        <li><a href="#技巧94-在替换过程中执行算术运算">技巧94 在替换过程中执行算术运算</a></li>
-        <li><a href="#技巧95-交换两个或更多的单词">技巧95 交换两个或更多的单词</a></li>
-        <li><a href="#技巧96-在多个文件中执行查找与替换">技巧96 在多个文件中执行查找与替换</a></li>
-      </ul>
-    </li>
-    <li><a href="#第15章-global命令">第15章 global命令</a>
-      <ul>
-        <li><a href="#技巧97-结识global命令">技巧97 结识global命令</a></li>
-        <li><a href="#技巧98-删除所有包含模式的文本行">技巧98 删除所有包含模式的文本行</a></li>
-        <li><a href="#技巧99-将todo项收集至寄存器">技巧99 将TODO项收集至寄存器</a></li>
-        <li><a href="#技巧100-将css文件中所有规则的属性按照字母排序">技巧100 将CSS文件中所有规则的属性按照字母排序</a></li>
-      </ul>
-    </li>
-    <li><a href="#第16章-通过ctags建立索引并用其浏览源代码">第16章 通过ctags建立索引，并用其浏览源代码</a>
-      <ul>
-        <li><a href="#技巧101-结识ctags">技巧101 结识ctags</a></li>
-        <li><a href="#技巧102-配置vim使用ctags">技巧102 配置Vim使用ctags</a></li>
-        <li><a href="#技巧103-使用vim的标签跳转命令浏览关键字的定义">技巧103 使用Vim的标签跳转命令，浏览关键字的定义</a></li>
-      </ul>
-    </li>
-    <li><a href="#第17章-编译代码并通过quickfix列表浏览错误信息">第17章 编译代码，并通过Quickfix列表浏览错误信息</a>
-      <ul>
-        <li><a href="#技巧104-不用离开vim也能编译代码">技巧104 不用离开Vim也能编译代码</a></li>
-        <li><a href="#技巧105-浏览quickfix列表">技巧105 浏览Quickfix列表</a></li>
-        <li><a href="#技巧106-回溯以前的quickfix列表">技巧106 回溯以前的Quickfix列表</a></li>
-        <li><a href="#技巧107-定制外部编译器">技巧107 定制外部编译器</a></li>
-      </ul>
-    </li>
-    <li><a href="#第18章-通过grepvimgrep以及其他工具对整个工程进行查找">第18章 通过grep、vimgrep以及其他工具对整个工程进行查找</a>
-      <ul>
-        <li><a href="#技巧108-不必离开vim也能调用grep">技巧108 不必离开Vim也能调用grep</a></li>
-        <li><a href="#技巧109-定制grep程序">技巧109 定制grep程序</a></li>
-        <li><a href="#技巧110-使用vim内部的grep">技巧110 使用Vim内部的Grep</a></li>
-      </ul>
-    </li>
-    <li><a href="#第19章-自动补全">第19章 自动补全</a>
-      <ul>
-        <li><a href="#技巧111-结识vim的关键字自动补全">技巧111 结识Vim的关键字自动补全</a></li>
-        <li><a href="#技巧112-与自动补全的弹出式菜单进行交互">技巧112 与自动补全的弹出式菜单进行交互</a></li>
-        <li><a href="#技巧113-掌握关键字的来龙去脉">技巧113 掌握关键字的来龙去脉</a></li>
-        <li><a href="#技巧114-使用字典中的单词进行自动补全">技巧114 使用字典中的单词进行自动补全</a></li>
-        <li><a href="#技巧115-自动补全整行文本">技巧115 自动补全整行文本</a></li>
-        <li><a href="#技巧116-自动补全文件名">技巧116 自动补全文件名</a></li>
-        <li><a href="#技巧117-根据上下文自动补全">技巧117 根据上下文自动补全</a></li>
-      </ul>
-    </li>
-    <li><a href="#第20章-利用vim的拼写检查器查找并更正拼写错误">第20章 利用Vim的拼写检查器，查找并更正拼写错误</a>
-      <ul>
-        <li><a href="#技巧118-对你的工作进行拼写检查">技巧118 对你的工作进行拼写检查</a></li>
-        <li><a href="#技巧119-使用其他拼写字典">技巧119 使用其他拼写字典</a></li>
-        <li><a href="#技巧120-将单词添加到拼写文件中">技巧120 将单词添加到拼写文件中</a></li>
-        <li><a href="#技巧121-在插入模式下更正拼写错误">技巧121 在插入模式下更正拼写错误</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav></div>
-      </div><div class="content" id="content"><h2 id="第1章-vim解决问题的方式">第1章 vim解决问题的方式</h2>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      8866 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/vim">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      vim
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><h2 id="第1章-vim解决问题的方式">第1章 vim解决问题的方式</h2>
 <h3 id="技巧1-结识-命令">技巧1 结识 <code>.</code>命令</h3>
 <ul>
 <li><code>.</code>命令可以重复上次的修改
@@ -1739,42 +1568,64 @@ search/tag-heirarchy.rb</li>
 <h3 id="技巧119-使用其他拼写字典">技巧119 使用其他拼写字典</h3>
 <h3 id="技巧120-将单词添加到拼写文件中">技巧120 将单词添加到拼写文件中</h3>
 <h3 id="技巧121-在插入模式下更正拼写错误">技巧121 在插入模式下更正拼写错误</h3>
-</div><div class="post-footer" id="post-footer">
-  <div class="post-info">
-    <div class="post-info-line">
-      <div class="post-info-mod">
-        <span title=2023-01-04&#32;10:46:53>Updated on 2023-01-04&nbsp;</span>
-      </div><div class="post-info-license">
-          <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
-        </div></div>
-    <div class="post-info-line">
-      <div class="post-info-md"></div>
-      <div class="post-info-share">
-        <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://daoist1037.github.io/posts/100-practice/" data-title="100 Practice" data-hashtags="vim"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://daoist1037.github.io/posts/100-practice/" data-hashtag="vim"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://daoist1037.github.io/posts/100-practice/" data-title="100 Practice"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
-  </span>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/vim/' class="post-tag">vim</a></section>
-    <section>
-      <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
-    </section>
-  </div>
-
-  <div class="post-nav"></div>
+  </main>
 </div>
-</article></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.109.0">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
-        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
-            <span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
-              <a href="/"></a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
-  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Back to Top"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
-        </div></div><div id="mask"></div><noscript>
-    <div class="noscript-warning">Theme FixIt works best with JavaScript enabled.</div>
-  </noscript>
-</div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/lunr/lunr.min.js" defer></script><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30}};</script><script src="/js/theme.min.js" defer></script></body>
+<script type="application/javascript" src='https://daoist1037.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://daoist1037.github.io/css/toc.css' />
+
+<div id="gitalk-container" class="gitalk-container"></div>
+<link rel="stylesheet" href='https://daoist1037.github.io/css/gitalk.css'>
+<script src='https://daoist1037.github.io/js/gitalk.min.js'></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '26835ecf55f12af65177',
+    clientSecret: 'bd82074bd43878844d571f45fc940a52e118577c',
+    repo: 'daoist1037.github.io',
+    owner: 'daoist1037',
+    admin: ['daoist1037'],
+    id: eval("location.pathname"), 
+    distractionFreeMode: false 
+  });
+  (function() {
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://daoist1037.github.io">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://daoist1037.github.io/js/github-style.js"></script>
+
+
+
+
 </html>

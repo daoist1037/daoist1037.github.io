@@ -1,7 +1,9 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories - Category - daoist1037</title>
+    <title>Categories on daoist1037</title>
     <link>https://daoist1037.github.io/categories/</link>
-    <description>Categories - Category - daoist1037</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://daoist1037.github.io/categories/" rel="self" type="application/rss+xml" /></channel>
+    <description>Recent content in Categories on daoist1037</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://daoist1037.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
 </rss>
