@@ -1,314 +1,179 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <title>100 Practice - LoveIt</title><meta name="Description" content="Hugo theme - LoveIt"><meta property="og:title" content="100 Practice" />
-<meta property="og:description" content="第1章 vim解决问题的方式 技巧1 结识 .命令 技巧2 不要自我重复 技巧3 以退为进 技巧4 执行、重复、回退 技巧五 查找并手动替换 技巧六 结识.范式 第2章 普" />
+<html itemscope itemtype="http://schema.org/WebPage" lang="">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>100 Practice - daoist1037</title><meta name="author" content="">
+<meta name="author-link" content="">
+<meta name="description" content="1. 第1章 vim解决问题的方式 1.1. 技巧1 结识 .命令 .命令可以重复上次的修改 &gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。 .命令是一个微型的宏 1.2. 技巧2 不要自我重复 a命令在当前光标之后添加内容
+a命令在当前行的结尾添加内容
+1.3. 技巧3 以退为进 f{char}命令让vim查找下一处指定字符出现的位置，如果找到了，就直接把光标移动到那里
+;命令会重复上次f命令所查找的字符
+s命令先删除光标下的字符，然后进入插入模式
+1.4. 技巧4 执行、重复、回退 @:可以重复任意ex命令
+&amp;重复上次的:substitute命令
+目的 操作 重复 回退 做出一个修改 {edit} . u 在行内查找下一指定字符 f{char}/t{char} ; , 在行内查找上一指定字符 f{char}/t{char} ; , 在文档中查找下一处匹配项 /pattern&lt;cr&gt; n n 在文档中查找上一处匹配项 ?pattern&lt;cr&gt; n n 执行替换 :s/target/replacement &amp; u 执行一系列修改 qx{changes}q @x u 1.5. 技巧五 查找并手动替换 *命令可以查找当前光标下的单词 1.6. 技巧六 结识.范式 2. 第2章 普通模式 2.1. 技巧7 停顿时请移开画笔 2." /><meta name="keywords" content='Hugo, FixIt' /><meta itemprop="name" content="100 Practice">
+<meta itemprop="description" content="1. 第1章 vim解决问题的方式 1.1. 技巧1 结识 .命令 .命令可以重复上次的修改 &gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。 .命令是一个微型的宏 1.2. 技巧2 不要自我重复 a命令在当前光标之后添加内容
+a命令在当前行的结尾添加内容
+1.3. 技巧3 以退为进 f{char}命令让vim查找下一处指定字符出现的位置，如果找到了，就直接把光标移动到那里
+;命令会重复上次f命令所查找的字符
+s命令先删除光标下的字符，然后进入插入模式
+1.4. 技巧4 执行、重复、回退 @:可以重复任意ex命令
+&amp;重复上次的:substitute命令
+目的 操作 重复 回退 做出一个修改 {edit} . u 在行内查找下一指定字符 f{char}/t{char} ; , 在行内查找上一指定字符 f{char}/t{char} ; , 在文档中查找下一处匹配项 /pattern&lt;cr&gt; n n 在文档中查找上一处匹配项 ?pattern&lt;cr&gt; n n 执行替换 :s/target/replacement &amp; u 执行一系列修改 qx{changes}q @x u 1.5. 技巧五 查找并手动替换 *命令可以查找当前光标下的单词 1.6. 技巧六 结识.范式 2. 第2章 普通模式 2.1. 技巧7 停顿时请移开画笔 2."><meta itemprop="datePublished" content="2023-01-04T10:46:53+08:00" />
+<meta itemprop="dateModified" content="2023-01-04T10:46:53+08:00" />
+<meta itemprop="wordCount" content="1151">
+<meta itemprop="keywords" content="" /><meta property="og:title" content="100 Practice" />
+<meta property="og:description" content="1. 第1章 vim解决问题的方式 1.1. 技巧1 结识 .命令 .命令可以重复上次的修改 &gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。 .命令是一个微型的宏 1.2. 技巧2 不要自我重复 a命令在当前光标之后添加内容
+a命令在当前行的结尾添加内容
+1.3. 技巧3 以退为进 f{char}命令让vim查找下一处指定字符出现的位置，如果找到了，就直接把光标移动到那里
+;命令会重复上次f命令所查找的字符
+s命令先删除光标下的字符，然后进入插入模式
+1.4. 技巧4 执行、重复、回退 @:可以重复任意ex命令
+&amp;重复上次的:substitute命令
+目的 操作 重复 回退 做出一个修改 {edit} . u 在行内查找下一指定字符 f{char}/t{char} ; , 在行内查找上一指定字符 f{char}/t{char} ; , 在文档中查找下一处匹配项 /pattern&lt;cr&gt; n n 在文档中查找上一处匹配项 ?pattern&lt;cr&gt; n n 执行替换 :s/target/replacement &amp; u 执行一系列修改 qx{changes}q @x u 1.5. 技巧五 查找并手动替换 *命令可以查找当前光标下的单词 1.6. 技巧六 结识.范式 2. 第2章 普通模式 2.1. 技巧7 停顿时请移开画笔 2." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daoist1037.github.io/post/100-practice/" /><meta property="og:image" content="https://daoist1037.github.io/logo.png"/><meta property="article:section" content="post" />
+<meta property="og:url" content="https://daoist1037.github.io/post/100-practice/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-01-04T10:46:53+08:00" />
-<meta property="article:modified_time" content="2023-01-04T10:46:53+08:00" /><meta property="og:site_name" content="LoveIt" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://daoist1037.github.io/logo.png"/>
-
+<meta property="article:modified_time" content="2023-01-04T10:46:53+08:00" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="100 Practice"/>
-<meta name="twitter:description" content="第1章 vim解决问题的方式 技巧1 结识 .命令 技巧2 不要自我重复 技巧3 以退为进 技巧4 执行、重复、回退 技巧五 查找并手动替换 技巧六 结识.范式 第2章 普"/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://daoist1037.github.io/post/100-practice/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "100 Practice",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/daoist1037.github.io\/post\/100-practice\/"
-        },"image": ["https:\/\/daoist1037.github.io\/images\/Apple-Devices-Preview.png"],"genre": "post","wordcount":  10903 ,
-        "url": "https:\/\/daoist1037.github.io\/post\/100-practice\/","datePublished": "2023-01-04T10:46:53+08:00","dateModified": "2023-01-04T10:46:53+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "xxxx","logo": "https:\/\/daoist1037.github.io\/images\/avatar.png"},"author": {
-                "@type": "Person",
-                "name": "daoist1037"
-            },"description": ""
-    }
-    </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
-
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+<meta name="twitter:description" content="1. 第1章 vim解决问题的方式 1.1. 技巧1 结识 .命令 .命令可以重复上次的修改 &gt;g会增加从当前行到文档末尾处的缩进层级 每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。 .命令是一个微型的宏 1.2. 技巧2 不要自我重复 a命令在当前光标之后添加内容
+a命令在当前行的结尾添加内容
+1.3. 技巧3 以退为进 f{char}命令让vim查找下一处指定字符出现的位置，如果找到了，就直接把光标移动到那里
+;命令会重复上次f命令所查找的字符
+s命令先删除光标下的字符，然后进入插入模式
+1.4. 技巧4 执行、重复、回退 @:可以重复任意ex命令
+&amp;重复上次的:substitute命令
+目的 操作 重复 回退 做出一个修改 {edit} . u 在行内查找下一指定字符 f{char}/t{char} ; , 在行内查找上一指定字符 f{char}/t{char} ; , 在文档中查找下一处匹配项 /pattern&lt;cr&gt; n n 在文档中查找上一处匹配项 ?pattern&lt;cr&gt; n n 执行替换 :s/target/replacement &amp; u 执行一系列修改 qx{changes}q @x u 1.5. 技巧五 查找并手动替换 *命令可以查找当前光标下的单词 1.6. 技巧六 结识.范式 2. 第2章 普通模式 2.1. 技巧7 停顿时请移开画笔 2."/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://daoist1037.github.io/post/100-practice/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "100 Practice",
+    "inLanguage": "",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/daoist1037.github.io\/post\/100-practice\/"
+    },"genre": "post","wordcount":  1151 ,
+    "url": "https:\/\/daoist1037.github.io\/post\/100-practice\/","datePublished": "2023-01-04T10:46:53+08:00","dateModified": "2023-01-04T10:46:53+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "Author"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="daoist1037"><span class="header-title-text">daoist1037</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Posts</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Search titles or contents ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Switch Theme">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
     <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="LoveIt"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>LoveIt</a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
-                    <i class="fa fa-globe" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/post/100-practice/" selected>简体中文</option></select>
-                </a></div>
-        </div>
+      <div class="header-title">
+        <a href="/" title="daoist1037"><span class="header-title-text">daoist1037</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="LoveIt"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw' aria-hidden='true'></i></span>LoveIt</a>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Search titles or contents ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
             </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
-                    </a>
-                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
-                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/post/100-practice/" selected>简体中文</option></select>
-                </a></div>
-    </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Cancel
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Posts</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item theme-switch" title="Switch Theme">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
 </header><div class="search-dropdown desktop">
-        <div id="search-dropdown-desktop"></div>
-    </div>
-    <div class="search-dropdown mobile">
-        <div id="search-dropdown-mobile"></div>
-    </div><main class="main">
-                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">100 Practice</h1><div class="content" id="content"><ul>
-<li><a href="#%e7%ac%ac1%e7%ab%a0-vim%e8%a7%a3%e5%86%b3%e9%97%ae%e9%a2%98%e7%9a%84%e6%96%b9%e5%bc%8f" rel="">第1章 vim解决问题的方式</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a71-%e7%bb%93%e8%af%86-%e5%91%bd%e4%bb%a4" rel="">技巧1 结识 <code>.</code>命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a72-%e4%b8%8d%e8%a6%81%e8%87%aa%e6%88%91%e9%87%8d%e5%a4%8d" rel="">技巧2 不要自我重复</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a73-%e4%bb%a5%e9%80%80%e4%b8%ba%e8%bf%9b" rel="">技巧3 以退为进</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a74-%e6%89%a7%e8%a1%8c%e9%87%8d%e5%a4%8d%e5%9b%9e%e9%80%80" rel="">技巧4 执行、重复、回退</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7%e4%ba%94-%e6%9f%a5%e6%89%be%e5%b9%b6%e6%89%8b%e5%8a%a8%e6%9b%bf%e6%8d%a2" rel="">技巧五 查找并手动替换</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7%e5%85%ad-%e7%bb%93%e8%af%86%e8%8c%83%e5%bc%8f" rel="">技巧六 结识<code>.</code>范式</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac2%e7%ab%a0-%e6%99%ae%e9%80%9a%e6%a8%a1%e5%bc%8f" rel="">第2章 普通模式</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a77-%e5%81%9c%e9%a1%bf%e6%97%b6%e8%af%b7%e7%a7%bb%e5%bc%80%e7%94%bb%e7%ac%94" rel="">技巧7 停顿时请移开画笔</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a78-%e6%8a%8a%e6%92%a4%e9%94%80%e5%8d%95%e5%85%83%e5%88%87%e6%88%90%e5%9d%97" rel="">技巧8 把撤销单元切成块</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a79-%e6%9e%84%e9%80%a0%e5%8f%af%e9%87%8d%e5%a4%8d%e7%9a%84%e4%bf%ae%e6%94%b9" rel="">技巧9 构造可重复的修改</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a710-%e7%94%a8%e6%ac%a1%e6%95%b0%e5%81%9a%e7%ae%80%e5%8d%95%e7%9a%84%e7%ae%97%e6%9c%af%e8%bf%90%e7%ae%97" rel="">技巧10 用次数做简单的算术运算</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a711-%e8%83%bd%e5%a4%9f%e9%87%8d%e5%a4%8d%e5%b0%b1%e5%88%ab%e7%94%a8%e6%ac%a1%e6%95%b0" rel="">技巧11 能够重复，就别用次数</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a712-%e5%8f%8c%e5%89%91%e5%90%88%e7%92%a7%e5%a4%a9%e4%b8%8b%e6%97%a0%e6%95%8c" rel="">技巧12 双剑合璧，天下无敌</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac3%e7%ab%a0-%e6%8f%92%e5%85%a5%e6%a8%a1%e5%bc%8f" rel="">第3章 插入模式</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a713-%e5%9c%a8%e6%8f%92%e5%85%a5%e6%a8%a1%e5%bc%8f%e4%b8%ad%e5%8f%af%e5%8d%b3%e6%97%b6%e6%9b%b4%e6%ad%a3%e9%94%99%e8%af%af" rel="">技巧13 在插入模式中可即时更正错误</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a714-%e8%bf%94%e5%9b%9e%e6%99%ae%e9%80%9a%e6%a8%a1%e5%bc%8f" rel="">技巧14 返回普通模式</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a715-%e4%b8%8d%e7%a6%bb%e5%bc%80%e6%8f%92%e5%85%a5%e6%a8%a1%e5%bc%8f%e7%b2%98%e8%b4%b4%e5%af%84%e5%ad%98%e5%99%a8%e4%b8%ad%e7%9a%84%e6%96%87%e6%9c%ac" rel="">技巧15 不离开插入模式，粘贴寄存器中的文本</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a716-%e9%9a%8f%e6%97%b6%e9%9a%8f%e5%9c%b0%e5%81%9a%e8%bf%90%e7%ae%97" rel="">技巧16 随时随地做运算</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a717-%e7%94%a8%e5%ad%97%e7%ac%a6%e7%bc%96%e7%a0%81%e6%8f%92%e5%85%a5%e9%9d%9e%e5%b8%b8%e7%94%a8%e5%ad%97%e7%ac%a6" rel="">技巧17 用字符编码插入非常用字符</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a718-%e7%94%a8%e4%ba%8c%e5%90%88%e5%ad%97%e6%af%8d%e6%8f%92%e5%85%a5%e9%9d%9e%e5%b8%b8%e7%94%a8%e5%ad%97%e7%ac%a6" rel="">技巧18 用二合字母插入非常用字符</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a719-%e7%94%a8%e6%9b%bf%e6%8d%a2%e6%a8%a1%e5%bc%8f%e6%9b%bf%e6%8d%a2%e5%b7%b2%e6%9c%89%e6%96%87%e6%9c%ac" rel="">技巧19 用替换模式替换已有文本</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac4%e7%ab%a0-%e5%8f%af%e8%a7%86%e5%8c%96%e6%a8%a1%e5%bc%8f" rel="">第4章 可视化模式</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a720-%e6%b7%b1%e5%85%a5%e7%90%86%e8%a7%a3%e5%8f%af%e8%a7%86%e5%8c%96%e6%a8%a1%e5%bc%8f" rel="">技巧20 深入理解可视化模式</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a721-%e9%80%89%e6%8b%a9%e9%ab%98%e4%ba%ae%e9%80%89%e5%8c%ba" rel="">技巧21 选择高亮选区</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a722-%e9%87%8d%e5%a4%8d%e6%89%a7%e8%a1%8c%e9%9d%a2%e5%90%91%e8%a1%8c%e7%9a%84%e5%8f%af%e8%a7%86%e5%91%bd%e4%bb%a4" rel="">技巧22 重复执行面向行的可视命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a723-%e5%8f%aa%e8%a6%81%e5%8f%af%e8%83%bd%e6%9c%80%e5%a5%bd%e7%94%a8%e6%93%8d%e4%bd%9c%e7%ac%a6%e5%91%bd%e4%bb%a4%e8%80%8c%e4%b8%8d%e6%98%af%e5%8f%af%e8%a7%86%e5%91%bd%e4%bb%a4" rel="">技巧23 只要可能，最好用操作符命令，而不是可视命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a724-%e9%9d%a2%e5%90%91%e5%88%97%e5%9d%97%e7%9a%84%e5%8f%af%e8%a7%86%e6%a8%a1%e5%bc%8f%e7%bc%96%e8%be%91%e8%a1%a8%e6%a0%bc%e6%95%b0%e6%8d%ae" rel="">技巧24 面向列块的可视模式编辑表格数据</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a725-%e4%bf%ae%e6%94%b9%e5%88%97%e6%96%87%e6%9c%ac" rel="">技巧25 修改列文本</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a726-%e5%9c%a8%e9%95%bf%e7%9f%ad%e4%b8%8d%e4%b8%80%e7%9a%84%e9%ab%98%e4%ba%ae%e5%9d%97%e5%90%8e%e6%b7%bb%e5%8a%a0%e6%96%87%e6%9c%ac" rel="">技巧26 在长短不一的高亮块后添加文本</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac5%e7%ab%a0-%e5%91%bd%e4%bb%a4%e8%a1%8c%e6%a8%a1%e5%bc%8f" rel="">第5章 命令行模式</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a727-%e7%bb%93%e8%af%86vim%e7%9a%84%e5%91%bd%e4%bb%a4%e8%a1%8c%e6%a8%a1%e5%bc%8f" rel="">技巧27 结识Vim的命令行模式</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a728-%e5%9c%a8%e4%b8%80%e8%a1%8c%e6%88%96%e5%a4%9a%e4%b8%aa%e8%bf%9e%e7%bb%ad%e8%a1%8c%e4%b8%8a%e6%89%a7%e8%a1%8c%e5%91%bd%e4%bb%a4" rel="">技巧28 在一行或多个连续行上执行命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a729-%e4%bd%bf%e7%94%a8-t-%e5%92%8c-m-%e5%91%bd%e4%bb%a4%e5%a4%8d%e5%88%b6%e5%92%8c%e7%a7%bb%e5%8a%a8" rel="">技巧29 使用 <code>:t</code> 和 <code>:m</code> 命令复制和移动</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a730-%e5%9c%a8%e6%8c%87%e5%ae%9a%e8%8c%83%e5%9b%b4%e4%b8%8a%e6%89%a7%e8%a1%8c%e6%99%ae%e9%80%9a%e6%a8%a1%e5%bc%8f%e5%91%bd%e4%bb%a4" rel="">技巧30 在指定范围上执行普通模式命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a731-%e9%87%8d%e5%a4%8d%e4%b8%8a%e6%ac%a1%e7%9a%84ex%e5%91%bd%e4%bb%a4" rel="">技巧31 重复上次的EX命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a732-%e8%87%aa%e5%8a%a8%e8%a1%a5%e5%85%a8ex%e5%91%bd%e4%bb%a4" rel="">技巧32 自动补全Ex命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a733-%e6%8a%8a%e5%bd%93%e5%89%8d%e5%8d%95%e8%af%8d%e6%8f%92%e5%85%a5%e5%91%bd%e4%bb%a4%e8%a1%8c" rel="">技巧33 把当前单词插入命令行</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a734-%e5%9b%9e%e6%ba%af%e5%8e%86%e5%8f%b2%e5%91%bd%e4%bb%a4" rel="">技巧34 回溯历史命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a735-%e8%bf%90%e8%a1%8cshell%e5%91%bd%e4%bb%a4" rel="">技巧35 运行shell命令</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac6%e7%ab%a0-%e7%ae%a1%e7%90%86%e5%a4%9a%e4%b8%aa%e6%96%87%e4%bb%b6" rel="">第6章 管理多个文件</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a736-%e7%94%a8%e7%bc%93%e5%86%b2%e5%8c%ba%e5%88%97%e8%a1%a8%e7%ae%a1%e7%90%86%e6%89%93%e5%bc%80%e7%9a%84%e6%96%87%e4%bb%b6" rel="">技巧36 用缓冲区列表管理打开的文件</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a737-%e7%94%a8%e5%8f%82%e6%95%b0%e5%88%97%e8%a1%a8%e5%b0%86%e7%bc%93%e5%86%b2%e5%8c%ba%e5%88%86%e7%bb%84" rel="">技巧37 用参数列表将缓冲区分组</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a738-%e7%ae%a1%e7%90%86%e7%bc%93%e5%86%b2%e5%8c%ba%e5%88%97%e8%a1%a8" rel="">技巧38 管理缓冲区列表</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a739-%e5%b0%86%e5%b7%a5%e4%bd%9c%e5%8c%ba%e5%88%87%e5%88%86%e6%88%90%e7%aa%97%e5%8f%a3" rel="">技巧39 将工作区切分成窗口</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a740-%e7%94%a8%e6%a0%87%e7%ad%be%e9%a1%b5%e5%b0%86%e7%aa%97%e5%8f%a3%e5%88%86%e7%bb%84" rel="">技巧40 用标签页将窗口分组</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac7%e7%ab%a0-%e6%89%93%e5%bc%80%e5%8f%8a%e4%bf%9d%e5%ad%98%e6%96%87%e4%bb%b6" rel="">第7章 打开及保存文件</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a741-%e7%94%a8-edit-%e5%91%bd%e4%bb%a4%e6%89%93%e5%bc%80%e6%96%87%e4%bb%b6" rel="">技巧41 用 :edit 命令打开文件</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a742-%e4%bd%bf%e7%94%a8-find-%e6%89%93%e5%bc%80%e6%96%87%e4%bb%b6" rel="">技巧42 使用 :find 打开文件</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a743-%e4%bd%bf%e7%94%a8-netrw-%e7%ae%a1%e7%90%86%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f" rel="">技巧43 使用 netrw 管理文件系统</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a744-%e6%8a%8a%e6%96%87%e4%bb%b6%e4%bf%9d%e5%ad%98%e5%88%b0%e4%b8%8d%e5%ad%98%e5%9c%a8%e7%9a%84%e7%9b%ae%e5%bd%95%e4%b8%ad" rel="">技巧44 把文件保存到不存在的目录中</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a745-%e4%bb%a5%e8%b6%85%e7%ba%a7%e7%94%a8%e6%88%b7%e6%9d%83%e9%99%90%e4%bf%9d%e5%ad%98%e6%96%87%e4%bb%b6" rel="">技巧45 以超级用户权限保存文件</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac8%e7%ab%a0-%e7%94%a8%e5%8a%a8%e4%bd%9c%e5%91%bd%e4%bb%a4%e5%9c%a8%e6%96%87%e6%a1%a3%e4%b8%ad%e7%a7%bb%e5%8a%a8" rel="">第8章 用动作命令在文档中移动</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a746-%e8%ae%a9%e6%89%8b%e6%8c%87%e4%bf%9d%e6%8c%81%e5%9c%a8%e6%9c%ac%e4%bd%8d%e8%a1%8c" rel="">技巧46 让手指保持在本位行</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a747-%e5%8c%ba%e5%88%86%e5%ae%9e%e9%99%85%e8%a1%8c%e4%b8%8e%e5%b1%8f%e5%b9%95%e8%a1%8c" rel="">技巧47 区分实际行与屏幕行</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a748-%e5%9f%ba%e4%ba%8e%e5%8d%95%e8%af%8d%e7%9a%84%e7%a7%bb%e5%8a%a8" rel="">技巧48 基于单词的移动</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a749-%e5%af%b9%e5%ad%97%e7%ac%a6%e8%bf%9b%e8%a1%8c%e6%9f%a5%e6%89%be" rel="">技巧49 对字符进行查找</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a750-%e9%80%9a%e8%bf%87%e6%9f%a5%e6%89%be%e8%bf%9b%e8%a1%8c%e7%a7%bb%e5%8a%a8" rel="">技巧50 通过查找进行移动</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a751-%e7%94%a8%e7%b2%be%e7%a1%ae%e7%9a%84%e6%96%87%e6%9c%ac%e5%af%b9%e8%b1%a1%e9%80%89%e6%8b%a9%e5%8c%ba" rel="">技巧51 用精确的文本对象选择区</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a752-%e5%88%a0%e9%99%a4%e5%91%a8%e8%be%b9%e4%bf%ae%e6%94%b9%e5%86%85%e9%83%a8" rel="">技巧52 删除周边，修改内部</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a753-%e8%ae%be%e7%bd%ae%e4%bd%8d%e7%bd%ae%e6%a0%87%e8%ae%b0%e4%bb%a5%e4%be%bf%e5%bf%ab%e9%80%9f%e8%b7%b3%e5%9b%9e" rel="">技巧53 设置位置标记，以便快速跳回</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a754-%e5%9c%a8%e5%8c%b9%e9%85%8d%e6%8b%ac%e5%8f%b7%e9%97%b4%e8%b7%b3%e8%bd%ac" rel="">技巧54 在匹配括号间跳转</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac9%e7%ab%a0-%e5%9c%a8%e6%96%87%e4%bb%b6%e9%97%b4%e8%b7%b3%e8%bd%ac" rel="">第9章 在文件间跳转</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a755-%e9%81%8d%e5%8e%86%e8%b7%b3%e8%bd%ac%e5%88%97%e8%a1%a8" rel="">技巧55 遍历跳转列表</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a756-%e9%81%8d%e5%8e%86%e6%94%b9%e5%8f%98%e5%88%97%e8%a1%a8" rel="">技巧56 遍历改变列表</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a757-%e8%b7%b3%e8%bd%ac%e5%88%b0%e5%85%89%e6%a0%87%e4%b8%8b%e7%9a%84%e6%96%87%e4%bb%b6" rel="">技巧57 跳转到光标下的文件</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a758-%e7%94%a8%e5%85%a8%e5%b1%80%e4%bd%8d%e7%bd%ae%e6%a0%87%e8%ae%b0%e5%9c%a8%e6%96%87%e4%bb%b6%e9%97%b4%e5%bf%ab%e9%80%9f%e8%b7%b3%e8%bd%ac" rel="">技巧58 用全局位置标记在文件间快速跳转</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac10%e7%ab%a0-%e5%a4%8d%e5%88%b6%e4%b8%8e%e7%b2%98%e8%b4%b4" rel="">第10章 复制与粘贴</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a759-%e7%94%a8%e6%97%a0%e5%90%8d%e5%af%84%e5%ad%98%e5%99%a8%e5%ae%9e%e7%8e%b0%e5%88%a0%e9%99%a4%e5%a4%8d%e5%88%b6%e4%b8%8e%e7%b2%98%e8%b4%b4%e6%93%8d%e4%bd%9c" rel="">技巧59 用无名寄存器实现删除、复制与粘贴操作</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a760-%e6%b7%b1%e5%85%a5%e7%90%86%e8%a7%a3vim%e5%af%84%e5%ad%98%e5%99%a8" rel="">技巧60 深入理解Vim寄存器</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a761-%e7%94%a8%e5%af%84%e5%ad%98%e5%99%a8%e4%b8%ad%e7%9a%84%e5%86%85%e5%ae%b9%e6%9b%bf%e6%8d%a2%e9%ab%98%e4%ba%ae%e9%80%89%e5%8c%ba%e7%9a%84%e6%96%87%e6%9c%ac" rel="">技巧61 用寄存器中的内容替换高亮选区的文本</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a762-%e6%8a%8a%e5%af%84%e5%ad%98%e5%99%a8%e7%9a%84%e5%86%85%e5%ae%b9%e7%b2%98%e8%b4%b4%e5%87%ba%e6%9d%a5" rel="">技巧62 把寄存器的内容粘贴出来</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a763-%e4%b8%8e%e7%b3%bb%e7%bb%9f%e5%89%aa%e8%b4%b4%e6%9d%bf%e8%bf%9b%e8%a1%8c%e4%ba%a4%e4%ba%92" rel="">技巧63 与系统剪贴板进行交互</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac11%e7%ab%a0-%e5%ae%8f" rel="">第11章 宏</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a764-%e5%ae%8f%e7%9a%84%e8%af%bb%e5%8f%96%e4%b8%8e%e6%89%a7%e8%a1%8c" rel="">技巧64 宏的读取与执行</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a765-%e8%a7%84%e8%8c%83%e5%85%89%e6%a0%87%e4%bd%8d%e7%bd%ae%e7%9b%b4%e8%be%be%e7%9b%ae%e6%a0%87%e4%bb%a5%e5%8f%8a%e4%b8%ad%e6%ad%a2%e5%ae%8f" rel="">技巧65 规范光标位置、直达目标以及中止宏</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a766-%e5%8a%a0%e6%ac%a1%e6%95%b0%e5%9b%9e%e6%94%be%e5%ae%8f" rel="">技巧66 加次数回放宏</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a767-%e5%9c%a8%e8%bf%9e%e7%bb%ad%e7%9a%84%e6%96%87%e6%9c%ac%e8%a1%8c%e4%b8%8a%e9%87%8d%e5%a4%8d%e4%bf%ae%e6%94%b9" rel="">技巧67 在连续的文本行上重复修改</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a768-%e7%bb%99%e5%ae%8f%e8%bf%bd%e5%8a%a0%e5%91%bd%e4%bb%a4" rel="">技巧68 给宏追加命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a769-%e5%9c%a8%e4%b8%80%e7%bb%84%e6%96%87%e4%bb%b6%e4%b8%ad%e6%89%a7%e8%a1%8c%e5%ae%8f" rel="">技巧69 在一组文件中执行宏</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a770-%e7%94%a8%e8%bf%ad%e4%bb%a3%e6%b1%82%e5%80%bc%e7%9a%84%e6%96%b9%e5%bc%8f%e7%bb%99%e5%88%97%e8%a1%a8%e7%bc%96%e5%8f%b7" rel="">技巧70 用迭代求值的方式给列表编号</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a771-%e7%bc%96%e8%be%91%e5%ae%8f%e7%9a%84%e5%86%85%e5%ae%b9" rel="">技巧71 编辑宏的内容</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac12%e7%ab%a0-%e6%8c%89%e6%a8%a1%e5%bc%8f%e5%8c%b9%e9%85%8d%e5%8f%8a%e6%8c%89%e5%8e%9f%e4%b9%89%e5%8c%b9%e9%85%8d" rel="">第12章 按模式匹配及按原义匹配</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a772-%e8%b0%83%e6%95%b4%e6%9f%a5%e6%89%be%e6%a8%a1%e5%bc%8f%e7%9a%84%e5%a4%a7%e5%b0%8f%e5%86%99%e6%95%8f%e6%84%9f%e6%80%a7" rel="">技巧72 调整查找模式的大小写敏感性</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a773-%e6%8c%89%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e6%9f%a5%e6%89%be%e6%97%b6%e4%bd%bf%e7%94%a8v%e6%a8%a1%e5%bc%8f%e5%bc%80%e5%85%b3" rel="">技巧73 按正则表达式查找时，使用\v模式开关</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a774-%e6%8c%89%e5%8e%9f%e4%b9%89%e6%9f%a5%e6%89%be%e6%96%87%e6%9c%ac%e6%97%b6%e4%bd%bf%e7%94%a8v%e5%8e%9f%e4%b9%89%e5%bc%80%e5%85%b3" rel="">技巧74 按原义查找文本时，使用\V原义开关</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a775-%e4%bd%bf%e7%94%a8%e5%9c%86%e6%8b%ac%e5%8f%b7%e6%8d%95%e8%8e%b7%e5%ad%90%e5%8c%b9%e9%85%8d" rel="">技巧75 使用圆括号捕获子匹配</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a776-%e7%95%8c%e5%ae%9a%e5%8d%95%e8%af%8d%e7%9a%84%e8%be%b9%e7%95%8c" rel="">技巧76 界定单词的边界</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a777-%e7%95%8c%e5%ae%9a%e5%8c%b9%e9%85%8d%e7%9a%84%e8%be%b9%e7%95%8c" rel="">技巧77 界定匹配的边界</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a778-%e8%bd%ac%e4%b9%89%e9%97%ae%e9%a2%98%e5%ad%97%e7%ac%a6" rel="">技巧78 转义问题字符</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac13%e7%ab%a0-%e6%9f%a5%e6%89%be" rel="">第13章 查找</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a779-%e7%bb%93%e8%af%86%e6%9f%a5%e6%89%be%e5%91%bd%e4%bb%a4" rel="">技巧79 结识查找命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a780-%e9%ab%98%e4%ba%ae%e6%9f%a5%e6%89%be%e5%8c%b9%e9%85%8d" rel="">技巧80 高亮查找匹配</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a781-%e5%9c%a8%e6%89%a7%e8%a1%8c%e6%9f%a5%e6%89%be%e5%89%8d%e9%a2%84%e8%a7%88%e7%ac%ac%e4%b8%80%e5%a4%84%e5%8c%b9%e9%85%8d" rel="">技巧81 在执行查找前预览第一处匹配</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a782-%e7%bb%9f%e8%ae%a1%e5%bd%93%e5%89%8d%e6%a8%a1%e5%bc%8f%e7%9a%84%e5%8c%b9%e9%85%8d%e4%b8%aa%e6%95%b0" rel="">技巧82 统计当前模式的匹配个数</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a783-%e5%b0%86%e5%85%89%e6%a0%87%e5%81%8f%e7%a7%bb%e5%88%b0%e6%9f%a5%e6%89%be%e5%8c%b9%e9%85%8d%e7%9a%84%e7%bb%93%e5%b0%be" rel="">技巧83 将光标偏移到查找匹配的结尾</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a784-%e5%af%b9%e5%ae%8c%e6%95%b4%e7%9a%84%e6%9f%a5%e6%89%be%e5%8c%b9%e9%85%8d%e8%bf%9b%e8%a1%8c%e6%93%8d%e4%bd%9c" rel="">技巧84 对完整的查找匹配进行操作</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a785-%e5%88%a9%e7%94%a8%e6%9f%a5%e6%89%be%e5%8e%86%e5%8f%b2%e8%bf%ad%e4%bb%a3%e5%ae%8c%e6%88%90%e5%a4%8d%e6%9d%82%e7%9a%84%e6%a8%a1%e5%bc%8f" rel="">技巧85 利用查找历史，迭代完成复杂的模式</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a786-%e6%9f%a5%e6%89%be%e5%bd%93%e5%89%8d%e9%ab%98%e4%ba%ae%e9%80%89%e5%8c%ba%e4%b8%ad%e7%9a%84%e6%96%87%e6%9c%ac" rel="">技巧86 查找当前高亮选区中的文本</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac14%e7%ab%a0-%e6%9b%bf%e6%8d%a2" rel="">第14章 替换</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a787-%e7%bb%93%e8%af%86substitute%e5%91%bd%e4%bb%a4" rel="">技巧87 结识substitute命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a788-%e5%9c%a8%e6%96%87%e4%bb%b6%e8%8c%83%e5%9b%b4%e5%86%85%e6%9f%a5%e6%89%be%e5%b9%b6%e6%9b%bf%e6%8d%a2%e6%af%8f%e4%b8%80%e5%a4%84%e5%8c%b9%e9%85%8d" rel="">技巧88 在文件范围内查找并替换每一处匹配</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a789-%e6%89%8b%e5%8a%a8%e6%8e%a7%e5%88%b6%e6%af%8f%e4%b8%80%e6%ac%a1%e6%9b%bf%e6%8d%a2%e6%93%8d%e4%bd%9c" rel="">技巧89 手动控制每一次替换操作</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a790-%e9%87%8d%e7%94%a8%e4%b8%8a%e6%ac%a1%e7%9a%84%e6%9f%a5%e6%89%be%e6%a8%a1%e5%bc%8f" rel="">技巧90 重用上次的查找模式</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a791-%e7%94%a8%e5%af%84%e5%ad%98%e5%99%a8%e7%9a%84%e5%86%85%e5%ae%b9%e6%9b%bf%e6%8d%a2" rel="">技巧91 用寄存器的内容替换</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a792-%e9%87%8d%e5%a4%8d%e4%b8%8a%e4%b8%80%e6%ac%a1substitute%e5%91%bd%e4%bb%a4" rel="">技巧92 重复上一次substitute命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a793-%e4%bd%bf%e7%94%a8%e5%ad%90%e5%8c%b9%e9%85%8d%e9%87%8d%e6%8e%92csv%e6%96%87%e4%bb%b6%e7%9a%84%e5%ad%97%e6%ae%b5" rel="">技巧93 使用子匹配重排CSV文件的字段</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a794-%e5%9c%a8%e6%9b%bf%e6%8d%a2%e8%bf%87%e7%a8%8b%e4%b8%ad%e6%89%a7%e8%a1%8c%e7%ae%97%e6%9c%af%e8%bf%90%e7%ae%97" rel="">技巧94 在替换过程中执行算术运算</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a795-%e4%ba%a4%e6%8d%a2%e4%b8%a4%e4%b8%aa%e6%88%96%e6%9b%b4%e5%a4%9a%e7%9a%84%e5%8d%95%e8%af%8d" rel="">技巧95 交换两个或更多的单词</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a796-%e5%9c%a8%e5%a4%9a%e4%b8%aa%e6%96%87%e4%bb%b6%e4%b8%ad%e6%89%a7%e8%a1%8c%e6%9f%a5%e6%89%be%e4%b8%8e%e6%9b%bf%e6%8d%a2" rel="">技巧96 在多个文件中执行查找与替换</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac15%e7%ab%a0-global%e5%91%bd%e4%bb%a4" rel="">第15章 global命令</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a797-%e7%bb%93%e8%af%86global%e5%91%bd%e4%bb%a4" rel="">技巧97 结识global命令</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a798-%e5%88%a0%e9%99%a4%e6%89%80%e6%9c%89%e5%8c%85%e5%90%ab%e6%a8%a1%e5%bc%8f%e7%9a%84%e6%96%87%e6%9c%ac%e8%a1%8c" rel="">技巧98 删除所有包含模式的文本行</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a799-%e5%b0%86todo%e9%a1%b9%e6%94%b6%e9%9b%86%e8%87%b3%e5%af%84%e5%ad%98%e5%99%a8" rel="">技巧99 将TODO项收集至寄存器</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7100-%e5%b0%86css%e6%96%87%e4%bb%b6%e4%b8%ad%e6%89%80%e6%9c%89%e8%a7%84%e5%88%99%e7%9a%84%e5%b1%9e%e6%80%a7%e6%8c%89%e7%85%a7%e5%ad%97%e6%af%8d%e6%8e%92%e5%ba%8f" rel="">技巧100 将CSS文件中所有规则的属性按照字母排序</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac16%e7%ab%a0-%e9%80%9a%e8%bf%87ctags%e5%bb%ba%e7%ab%8b%e7%b4%a2%e5%bc%95%e5%b9%b6%e7%94%a8%e5%85%b6%e6%b5%8f%e8%a7%88%e6%ba%90%e4%bb%a3%e7%a0%81" rel="">第16章 通过ctags建立索引，并用其浏览源代码</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a7101-%e7%bb%93%e8%af%86ctags" rel="">技巧101 结识ctags</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7102-%e9%85%8d%e7%bd%aevim%e4%bd%bf%e7%94%a8ctags" rel="">技巧102 配置Vim使用ctags</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7103-%e4%bd%bf%e7%94%a8vim%e7%9a%84%e6%a0%87%e7%ad%be%e8%b7%b3%e8%bd%ac%e5%91%bd%e4%bb%a4%e6%b5%8f%e8%a7%88%e5%85%b3%e9%94%ae%e5%ad%97%e7%9a%84%e5%ae%9a%e4%b9%89" rel="">技巧103 使用Vim的标签跳转命令，浏览关键字的定义</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac17%e7%ab%a0-%e7%bc%96%e8%af%91%e4%bb%a3%e7%a0%81%e5%b9%b6%e9%80%9a%e8%bf%87quickfix%e5%88%97%e8%a1%a8%e6%b5%8f%e8%a7%88%e9%94%99%e8%af%af%e4%bf%a1%e6%81%af" rel="">第17章 编译代码，并通过Quickfix列表浏览错误信息</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a7104-%e4%b8%8d%e7%94%a8%e7%a6%bb%e5%bc%80vim%e4%b9%9f%e8%83%bd%e7%bc%96%e8%af%91%e4%bb%a3%e7%a0%81" rel="">技巧104 不用离开Vim也能编译代码</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7105-%e6%b5%8f%e8%a7%88quickfix%e5%88%97%e8%a1%a8" rel="">技巧105 浏览Quickfix列表</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7106-%e5%9b%9e%e6%ba%af%e4%bb%a5%e5%89%8d%e7%9a%84quickfix%e5%88%97%e8%a1%a8" rel="">技巧106 回溯以前的Quickfix列表</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7107-%e5%ae%9a%e5%88%b6%e5%a4%96%e9%83%a8%e7%bc%96%e8%af%91%e5%99%a8" rel="">技巧107 定制外部编译器</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac18%e7%ab%a0-%e9%80%9a%e8%bf%87grepvimgrep%e4%bb%a5%e5%8f%8a%e5%85%b6%e4%bb%96%e5%b7%a5%e5%85%b7%e5%af%b9%e6%95%b4%e4%b8%aa%e5%b7%a5%e7%a8%8b%e8%bf%9b%e8%a1%8c%e6%9f%a5%e6%89%be" rel="">第18章 通过grep、vimgrep以及其他工具对整个工程进行查找</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a7108-%e4%b8%8d%e5%bf%85%e7%a6%bb%e5%bc%80vim%e4%b9%9f%e8%83%bd%e8%b0%83%e7%94%a8grep" rel="">技巧108 不必离开Vim也能调用grep</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7109-%e5%ae%9a%e5%88%b6grep%e7%a8%8b%e5%ba%8f" rel="">技巧109 定制grep程序</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7110-%e4%bd%bf%e7%94%a8vim%e5%86%85%e9%83%a8%e7%9a%84grep" rel="">技巧110 使用Vim内部的Grep</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac19%e7%ab%a0-%e8%87%aa%e5%8a%a8%e8%a1%a5%e5%85%a8" rel="">第19章 自动补全</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a7111-%e7%bb%93%e8%af%86vim%e7%9a%84%e5%85%b3%e9%94%ae%e5%ad%97%e8%87%aa%e5%8a%a8%e8%a1%a5%e5%85%a8" rel="">技巧111 结识Vim的关键字自动补全</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7112-%e4%b8%8e%e8%87%aa%e5%8a%a8%e8%a1%a5%e5%85%a8%e7%9a%84%e5%bc%b9%e5%87%ba%e5%bc%8f%e8%8f%9c%e5%8d%95%e8%bf%9b%e8%a1%8c%e4%ba%a4%e4%ba%92" rel="">技巧112 与自动补全的弹出式菜单进行交互</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7113-%e6%8e%8c%e6%8f%a1%e5%85%b3%e9%94%ae%e5%ad%97%e7%9a%84%e6%9d%a5%e9%be%99%e5%8e%bb%e8%84%89" rel="">技巧113 掌握关键字的来龙去脉</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7114-%e4%bd%bf%e7%94%a8%e5%ad%97%e5%85%b8%e4%b8%ad%e7%9a%84%e5%8d%95%e8%af%8d%e8%bf%9b%e8%a1%8c%e8%87%aa%e5%8a%a8%e8%a1%a5%e5%85%a8" rel="">技巧114 使用字典中的单词进行自动补全</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7115-%e8%87%aa%e5%8a%a8%e8%a1%a5%e5%85%a8%e6%95%b4%e8%a1%8c%e6%96%87%e6%9c%ac" rel="">技巧115 自动补全整行文本</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7116-%e8%87%aa%e5%8a%a8%e8%a1%a5%e5%85%a8%e6%96%87%e4%bb%b6%e5%90%8d" rel="">技巧116 自动补全文件名</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7117-%e6%a0%b9%e6%8d%ae%e4%b8%8a%e4%b8%8b%e6%96%87%e8%87%aa%e5%8a%a8%e8%a1%a5%e5%85%a8" rel="">技巧117 根据上下文自动补全</a></li>
-</ul>
-</li>
-<li><a href="#%e7%ac%ac20%e7%ab%a0-%e5%88%a9%e7%94%a8vim%e7%9a%84%e6%8b%bc%e5%86%99%e6%a3%80%e6%9f%a5%e5%99%a8%e6%9f%a5%e6%89%be%e5%b9%b6%e6%9b%b4%e6%ad%a3%e6%8b%bc%e5%86%99%e9%94%99%e8%af%af" rel="">第20章 利用Vim的拼写检查器，查找并更正拼写错误</a>
-<ul>
-<li><a href="#%e6%8a%80%e5%b7%a7118-%e5%af%b9%e4%bd%a0%e7%9a%84%e5%b7%a5%e4%bd%9c%e8%bf%9b%e8%a1%8c%e6%8b%bc%e5%86%99%e6%a3%80%e6%9f%a5" rel="">技巧118 对你的工作进行拼写检查</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7119-%e4%bd%bf%e7%94%a8%e5%85%b6%e4%bb%96%e6%8b%bc%e5%86%99%e5%ad%97%e5%85%b8" rel="">技巧119 使用其他拼写字典</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7120-%e5%b0%86%e5%8d%95%e8%af%8d%e6%b7%bb%e5%8a%a0%e5%88%b0%e6%8b%bc%e5%86%99%e6%96%87%e4%bb%b6%e4%b8%ad" rel="">技巧120 将单词添加到拼写文件中</a></li>
-<li><a href="#%e6%8a%80%e5%b7%a7121-%e5%9c%a8%e6%8f%92%e5%85%a5%e6%a8%a1%e5%bc%8f%e4%b8%8b%e6%9b%b4%e6%ad%a3%e6%8b%bc%e5%86%99%e9%94%99%e8%af%af" rel="">技巧121 在插入模式下更正拼写错误</a></li>
-</ul>
-</li>
-</ul>
-<h1 id="第1章-vim解决问题的方式">第1章 vim解决问题的方式</h1>
-<h2 id="技巧1-结识-命令">技巧1 结识 <code>.</code>命令</h2>
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container" data-page-style="normal"><article class="page single special">
+    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">100 Practice</h1></div><div
+      class="content"
+      id="content"
+      
+      
+    ><h2 id="1-第1章-vim解决问题的方式">1. 第1章 vim解决问题的方式</h2>
+<h3 id="11-技巧1-结识-命令">1.1. 技巧1 结识 <code>.</code>命令</h3>
 <ul>
 <li><code>.</code>命令可以重复上次的修改
 <ul>
@@ -318,7 +183,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="技巧2-不要自我重复">技巧2 不要自我重复</h2>
+<h3 id="12-技巧2-不要自我重复">1.2. 技巧2 不要自我重复</h3>
 <ul>
 <li>
 <p><code>a</code>命令在当前光标之后添加内容</p>
@@ -327,7 +192,7 @@
 <p><code>a</code>命令在当前行的结尾添加内容</p>
 </li>
 </ul>
-<h2 id="技巧3-以退为进">技巧3 以退为进</h2>
+<h3 id="13-技巧3-以退为进">1.3. 技巧3 以退为进</h3>
 <ul>
 <li>
 <p><code>f{char}</code>命令让vim查找下一处指定字符出现的位置，如果找到了，就直接把光标移动到那里</p>
@@ -339,7 +204,7 @@
 <p><code>s</code>命令先删除光标下的字符，然后进入插入模式</p>
 </li>
 </ul>
-<h2 id="技巧4-执行重复回退">技巧4 执行、重复、回退</h2>
+<h3 id="14-技巧4-执行重复回退">1.4. 技巧4 执行、重复、回退</h3>
 <ul>
 <li>
 <p><code>@:</code>可以重复任意<code>ex</code>命令</p>
@@ -402,15 +267,15 @@
 </tr>
 </tbody>
 </table>
-<h2 id="技巧五-查找并手动替换">技巧五 查找并手动替换</h2>
+<h3 id="15-技巧五-查找并手动替换">1.5. 技巧五 查找并手动替换</h3>
 <ul>
 <li><code>*</code>命令可以查找当前光标下的单词</li>
 </ul>
-<h2 id="技巧六-结识范式">技巧六 结识<code>.</code>范式</h2>
-<h1 id="第2章-普通模式">第2章 普通模式</h1>
-<h2 id="技巧7-停顿时请移开画笔">技巧7 停顿时请移开画笔</h2>
-<h2 id="技巧8-把撤销单元切成块">技巧8 把撤销单元切成块</h2>
-<h2 id="技巧9-构造可重复的修改">技巧9 构造可重复的修改</h2>
+<h3 id="16-技巧六-结识范式">1.6. 技巧六 结识<code>.</code>范式</h3>
+<h2 id="2-第2章-普通模式">2. 第2章 普通模式</h2>
+<h3 id="21-技巧7-停顿时请移开画笔">2.1. 技巧7 停顿时请移开画笔</h3>
+<h3 id="22-技巧8-把撤销单元切成块">2.2. 技巧8 把撤销单元切成块</h3>
+<h3 id="23-技巧9-构造可重复的修改">2.3. 技巧9 构造可重复的修改</h3>
 <ul>
 <li>
 <p>如果在插入模式中使用了<code>&lt;up&gt;、&lt;down&gt;、&lt;left&gt;、&lt;right&gt;</code>这些光标键，将会产生一个新的撤销块。会对<code>.</code>命令的操作产生影响</p>
@@ -419,7 +284,7 @@
 <p>使用更为精准的<code>aw</code>文本对象</p>
 </li>
 </ul>
-<h2 id="技巧10-用次数做简单的算术运算">技巧10 用次数做简单的算术运算</h2>
+<h3 id="24-技巧10-用次数做简单的算术运算">2.4. 技巧10 用次数做简单的算术运算</h3>
 <ul>
 <li><code>&lt;c-a&gt;</code>和<code>&lt;c-x&gt;</code>命令对数字执行加和减操作。在不带数字执行时，它们会逐个加减，但如果带一个次数前缀，那么就可以用它们加减任意整数。
 <ul>
@@ -428,8 +293,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="技巧11-能够重复就别用次数">技巧11 能够重复，就别用次数</h2>
-<h2 id="技巧12-双剑合璧天下无敌">技巧12 双剑合璧，天下无敌</h2>
+<h3 id="25-技巧11-能够重复就别用次数">2.5. 技巧11 能够重复，就别用次数</h3>
+<h3 id="26-技巧12-双剑合璧天下无敌">2.6. 技巧12 双剑合璧，天下无敌</h3>
 <table>
 <thead>
 <tr>
@@ -489,8 +354,8 @@
 </ul>
 </li>
 </ul>
-<h1 id="第3章-插入模式">第3章 插入模式</h1>
-<h2 id="技巧13-在插入模式中可即时更正错误">技巧13 在插入模式中可即时更正错误</h2>
+<h2 id="3-第3章-插入模式">3. 第3章 插入模式</h2>
+<h3 id="31-技巧13-在插入模式中可即时更正错误">3.1. 技巧13 在插入模式中可即时更正错误</h3>
 <ul>
 <li>
 <p><code>&lt;C-h&gt;</code>删除前一个字符（同退格键）</p>
@@ -502,7 +367,7 @@
 <p><code>&lt;C-u&gt;</code>删至行首</p>
 </li>
 </ul>
-<h2 id="技巧14-返回普通模式">技巧14 返回普通模式</h2>
+<h3 id="32-技巧14-返回普通模式">3.2. 技巧14 返回普通模式</h3>
 <table>
 <thead>
 <tr>
@@ -530,7 +395,7 @@
 在此模式中，可以先执行一个普通模式，执行完后，马上回到插入模式</li>
 <li><code>zz</code>让当前行显示在窗口正中；<code>&lt;C-o&gt;zz</code>在插入-普通模式中触发这条命名让正中显示后直接j回到插入模式</li>
 </ul>
-<h2 id="技巧15-不离开插入模式粘贴寄存器中的文本">技巧15 不离开插入模式，粘贴寄存器中的文本</h2>
+<h3 id="33-技巧15-不离开插入模式粘贴寄存器中的文本">3.3. 技巧15 不离开插入模式，粘贴寄存器中的文本</h3>
 <ul>
 <li>
 <p><code>&lt;C-r&gt;{register}</code>插入寄存器中的内容，但是当<code>textwidth</code>或<code>autoindent</code>选项被激活了的话，那么最终会出现不必要的换行或额外的缩进</p>
@@ -539,7 +404,7 @@
 <p><code>&lt;C-r&gt;&lt;C-p&gt;{register}</code>会更智能些，它会按照原意插入寄存器中的文本，并修正任何不必要的缩进</p>
 </li>
 </ul>
-<h2 id="技巧16-随时随地做运算">技巧16 随时随地做运算</h2>
+<h3 id="34-技巧16-随时随地做运算">3.4. 技巧16 随时随地做运算</h3>
 <ul>
 <li>
 <p>表达式寄存器允许我们做一些运算，并把运算结果直接插入到文档中</p>
@@ -549,7 +414,7 @@
 <code>&lt;C-r&gt;=</code>就可以访问这一寄存器。这条命令会在屏幕的下方显示一个提示符，我们可以在其后输入要执行的表达式。输入表达式后敲一下<code>&lt;CR&gt;</code>，Vim就会把执行的结果插入到文档的当前位置了。</p>
 </li>
 </ul>
-<h2 id="技巧17-用字符编码插入非常用字符">技巧17 用字符编码插入非常用字符</h2>
+<h3 id="35-技巧17-用字符编码插入非常用字符">3.5. 技巧17 用字符编码插入非常用字符</h3>
 <ul>
 <li>
 <p>在插入模式下输入<code>&lt;C-v&gt;{code}</code>其中{code}是要插入字符的编码</p>
@@ -584,13 +449,13 @@
 </tr>
 </tbody>
 </table>
-<h2 id="技巧18-用二合字母插入非常用字符">技巧18 用二合字母插入非常用字符</h2>
-<h2 id="技巧19-用替换模式替换已有文本">技巧19 用替换模式替换已有文本</h2>
+<h3 id="36-技巧18-用二合字母插入非常用字符">3.6. 技巧18 用二合字母插入非常用字符</h3>
+<h3 id="37-技巧19-用替换模式替换已有文本">3.7. 技巧19 用替换模式替换已有文本</h3>
 <ul>
 <li>虚拟替换模式<code>gR</code></li>
 </ul>
-<h1 id="第4章-可视化模式">第4章 可视化模式</h1>
-<h2 id="技巧20-深入理解可视化模式">技巧20 深入理解可视化模式</h2>
+<h2 id="4-第4章-可视化模式">4. 第4章 可视化模式</h2>
+<h3 id="41-技巧20-深入理解可视化模式">4.1. 技巧20 深入理解可视化模式</h3>
 <ul>
 <li>
 <p><code>viw</code></p>
@@ -599,7 +464,7 @@
 <p><code>&lt;C-g&gt;</code>可以在可视化模式及选择模式间切换，在选择模式中输入任意可见字符，此字符会替换所选内容并切换到插入模式</p>
 </li>
 </ul>
-<h2 id="技巧21-选择高亮选区">技巧21 选择高亮选区</h2>
+<h3 id="42-技巧21-选择高亮选区">4.2. 技巧21 选择高亮选区</h3>
 <table>
 <thead>
 <tr>
@@ -630,11 +495,11 @@
 </tr>
 </tbody>
 </table>
-<h2 id="技巧22-重复执行面向行的可视命令">技巧22 重复执行面向行的可视命令</h2>
+<h3 id="43-技巧22-重复执行面向行的可视命令">4.3. 技巧22 重复执行面向行的可视命令</h3>
 <ul>
 <li>当使用 <code>.</code> 命令重复对高亮选区所做的修改时，此修改会重复作用于相同范围的文本(验证失败)</li>
 </ul>
-<h2 id="技巧23-只要可能最好用操作符命令而不是可视命令">技巧23 只要可能，最好用操作符命令，而不是可视命令</h2>
+<h3 id="44-技巧23-只要可能最好用操作符命令而不是可视命令">4.4. 技巧23 只要可能，最好用操作符命令，而不是可视命令</h3>
 <ul>
 <li>
 <p>可视化模式下可以使用<code>U</code>命令来大写所选字符</p>
@@ -649,8 +514,8 @@
 <p>在这个模式下 <code>.</code> 命令有时会有一些异常的表现。</p>
 </li>
 </ul>
-<h2 id="技巧24-面向列块的可视模式编辑表格数据">技巧24 面向列块的可视模式编辑表格数据</h2>
-<h2 id="技巧25-修改列文本">技巧25 修改列文本</h2>
+<h3 id="45-技巧24-面向列块的可视模式编辑表格数据">4.5. 技巧24 面向列块的可视模式编辑表格数据</h3>
+<h3 id="46-技巧25-修改列文本">4.6. 技巧25 修改列文本</h3>
 <ul>
 <li>列块可视化模式中，删除操作会影响所有被选中的，但插入操作只影响顶行，而且<code>a i o</code>等命令无效
 <ul>
@@ -658,16 +523,16 @@
 </ul>
 </li>
 </ul>
-<h2 id="技巧26-在长短不一的高亮块后添加文本">技巧26 在长短不一的高亮块后添加文本</h2>
+<h3 id="47-技巧26-在长短不一的高亮块后添加文本">4.7. 技巧26 在长短不一的高亮块后添加文本</h3>
 <ul>
 <li><code>I A</code>命令</li>
 </ul>
-<h1 id="第5章-命令行模式">第5章 命令行模式</h1>
-<h2 id="技巧27-结识vim的命令行模式">技巧27 结识Vim的命令行模式</h2>
+<h2 id="5-第5章-命令行模式">5. 第5章 命令行模式</h2>
+<h3 id="51-技巧27-结识vim的命令行模式">5.1. 技巧27 结识Vim的命令行模式</h3>
 <ul>
 <li>有些命令在插入模式和命令行模式中可以通用。例如，可以用 <code>&lt;C-w&gt;</code> 和 <code>&lt;C-u&gt;</code> 分别删除至上个单词的开头及行首，也可以用 <code>&lt;C-v&gt;</code> 或 <code>&lt;C-k&gt;</code> 来插入键盘上找不到的字符，还可以用 <code>&lt;C-r&gt;{register}</code> 命令把任意寄存器的内容插入到命令行</li>
 </ul>
-<h2 id="技巧28-在一行或多个连续行上执行命令">技巧28 在一行或多个连续行上执行命令</h2>
+<h3 id="52-技巧28-在一行或多个连续行上执行命令">5.2. 技巧28 在一行或多个连续行上执行命令</h3>
 <ul>
 <li>
 <p>用行号作为地址</p>
@@ -707,7 +572,7 @@
 <ul>
 <li><code>:/&lt;html&gt;/,/\/html&gt;/p</code> 也符合 <code>:{start},{end}</code>
 <ul>
-<li><code>{start}</code> 是 /<html>/ ，而<code>{end}</code> 地址是 /&lt;/html&gt;/</li>
+<li><code>{start}</code> 是 /<!-- raw HTML omitted -->/ ，而<code>{end}</code> 地址是 /&lt;/html&gt;/</li>
 </ul>
 </li>
 </ul>
@@ -723,7 +588,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="技巧29-使用-t-和-m-命令复制和移动">技巧29 使用 <code>:t</code> 和 <code>:m</code> 命令复制和移动</h2>
+<h3 id="53-技巧29-使用-t-和-m-命令复制和移动">5.3. 技巧29 使用 <code>:t</code> 和 <code>:m</code> 命令复制和移动</h3>
 <ul>
 <li>
 <p><code>:copy</code> 及其 <code>:t</code> 可以把一行或者多行从文档的一部分复制到另一部分</p>
@@ -735,11 +600,11 @@
 <p><code>:move</code> 可以把一行或多行文档移到文档其他地方</p>
 </li>
 </ul>
-<h2 id="技巧30-在指定范围上执行普通模式命令">技巧30 在指定范围上执行普通模式命令</h2>
+<h3 id="54-技巧30-在指定范围上执行普通模式命令">5.4. 技巧30 在指定范围上执行普通模式命令</h3>
 <ul>
 <li><code>:%normal A;</code> 会在全文每行末尾添加分号</li>
 </ul>
-<h2 id="技巧31-重复上次的ex命令">技巧31 重复上次的EX命令</h2>
+<h3 id="55-技巧31-重复上次的ex命令">5.5. 技巧31 重复上次的EX命令</h3>
 <ul>
 <li>
 <p><code>.</code> 命令可以重复上次的普通模式命令。然而，如果想重复上次的 Ex命令的话，我们得使用 <code>@:</code> 才行。</p>
@@ -748,8 +613,8 @@
 <p><code>:</code> 寄存器总是保存着最后执行的命令行命令</p>
 </li>
 </ul>
-<h2 id="技巧32-自动补全ex命令">技巧32 自动补全Ex命令</h2>
-<h2 id="技巧33-把当前单词插入命令行">技巧33 把当前单词插入命令行</h2>
+<h3 id="56-技巧32-自动补全ex命令">5.6. 技巧32 自动补全Ex命令</h3>
+<h3 id="57-技巧33-把当前单词插入命令行">5.7. 技巧33 把当前单词插入命令行</h3>
 <ul>
 <li>
 <p>在Vim的命令行下，<code>&lt;C-r&gt;&lt;C-w&gt;</code>映射项会复制光标下的单词并把它插入到命令行中。</p>
@@ -758,7 +623,7 @@
 <p><code>*</code>命令等效于输入 <code>/\&lt;&lt;C-r&gt;&lt;C-w&gt;\&gt;&lt;CR&gt;</code></p>
 </li>
 </ul>
-<h2 id="技巧34-回溯历史命令">技巧34 回溯历史命令</h2>
+<h3 id="58-技巧34-回溯历史命令">5.8. 技巧34 回溯历史命令</h3>
 <ul>
 <li><code>&lt;UP&gt; &lt;Down&gt;</code></li>
 </ul>
@@ -784,7 +649,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="技巧35-运行shell命令">技巧35 运行shell命令</h2>
+<h3 id="59-技巧35-运行shell命令">5.9. 技巧35 运行shell命令</h3>
 <ul>
 <li>
 <p><code>!</code>叹号前缀</p>
@@ -799,8 +664,8 @@
 <p><code>fg</code>命令唤醒一个被挂起的作业</p>
 </li>
 </ul>
-<h1 id="第6章-管理多个文件">第6章 管理多个文件</h1>
-<h2 id="技巧36-用缓冲区列表管理打开的文件">技巧36 用缓冲区列表管理打开的文件</h2>
+<h2 id="6-第6章-管理多个文件">6. 第6章 管理多个文件</h2>
+<h3 id="61-技巧36-用缓冲区列表管理打开的文件">6.1. 技巧36 用缓冲区列表管理打开的文件</h3>
 <ul>
 <li>
 <p><code>:ls</code> 列出所有被载入内存中的缓冲区的列表</p>
@@ -831,7 +696,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="技巧37-用参数列表将缓冲区分组">技巧37 用参数列表将缓冲区分组</h2>
+<h3 id="62-技巧37-用参数列表将缓冲区分组">6.2. 技巧37 用参数列表将缓冲区分组</h3>
 <ul>
 <li>
 <p>用 <code>Glob</code> 模式指定文件</p>
@@ -841,17 +706,17 @@
 Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为:args的参数</p>
 </li>
 </ul>
-<h2 id="技巧38-管理缓冲区列表">技巧38 管理缓冲区列表</h2>
+<h3 id="63-技巧38-管理缓冲区列表">6.3. 技巧38 管理缓冲区列表</h3>
 <ul>
 <li>修改但未保存的文件会有 + 号</li>
 </ul>
-<h2 id="技巧39-将工作区切分成窗口">技巧39 将工作区切分成窗口</h2>
+<h3 id="64-技巧39-将工作区切分成窗口">6.4. 技巧39 将工作区切分成窗口</h3>
 <ul>
 <li>
-<p>用 <C-w>s 命令可以水平切分此窗口，使之成为两个高度相同的窗口；或者可以用<C-w>v 命令对其进行垂直切分，这样会产生两个宽度相同的窗口。</p>
+<p>用 <!-- raw HTML omitted -->s 命令可以水平切分此窗口，使之成为两个高度相同的窗口；或者可以用<!-- raw HTML omitted -->v 命令对其进行垂直切分，这样会产生两个宽度相同的窗口。</p>
 </li>
 <li>
-<p><C-w>w <C-w>h <C-w>j <C-w>k <C-w>l</p>
+<p><!-- raw HTML omitted -->w <!-- raw HTML omitted -->h <!-- raw HTML omitted -->j <!-- raw HTML omitted -->k <!-- raw HTML omitted -->l</p>
 </li>
 <li>
 <p>close 关闭活动窗口</p>
@@ -860,7 +725,7 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 <p>on 只保留活动窗口，关闭其他所有窗口</p>
 </li>
 </ul>
-<h2 id="技巧40-用标签页将窗口分组">技巧40 用标签页将窗口分组</h2>
+<h3 id="65-技巧40-用标签页将窗口分组">6.5. 技巧40 用标签页将窗口分组</h3>
 <ul>
 <li>
 <p>:lcd {path} 命令让我们可以设置当前窗口的本地工作目录</p>
@@ -872,8 +737,8 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 <p>用 :windo lcd {path} 命令为所有这些窗口设置本地工作目录。</p>
 </li>
 </ul>
-<h1 id="第7章-打开及保存文件">第7章 打开及保存文件</h1>
-<h2 id="技巧41-用-edit-命令打开文件">技巧41 用 :edit 命令打开文件</h2>
+<h2 id="7-第7章-打开及保存文件">7. 第7章 打开及保存文件</h2>
+<h3 id="71-技巧41-用-edit-命令打开文件">7.1. 技巧41 用 :edit 命令打开文件</h3>
 <ul>
 <li>
 <p><code>:pwd</code> 打印工作目录</p>
@@ -885,13 +750,13 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </ul>
 </li>
 <li>
-<p>cnoremap <expr> %% getcmdtype( ) == &lsquo;:&rsquo; ? expand(&rsquo;%:h&rsquo;).&rsquo;/&rsquo; : &lsquo;%%&rsquo;</p>
+<p>cnoremap <!-- raw HTML omitted --> %% getcmdtype( ) == &lsquo;:&rsquo; ? expand(&rsquo;%:h&rsquo;).&rsquo;/&rsquo; : &lsquo;%%&rsquo;</p>
 <ul>
 <li>当你在 Vim 的命令行提示符后输入 %%  时，它就会被自动展开为活动缓冲区所在目录的路径</li>
 </ul>
 </li>
 </ul>
-<h2 id="技巧42-使用-find-打开文件">技巧42 使用 :find 打开文件</h2>
+<h3 id="72-技巧42-使用-find-打开文件">7.2. 技巧42 使用 :find 打开文件</h3>
 <ul>
 <li>需要预设 path
 <ul>
@@ -900,7 +765,7 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </ul>
 </li>
 </ul>
-<h2 id="技巧43-使用-netrw-管理文件系统">技巧43 使用 netrw 管理文件系统</h2>
+<h3 id="73-技巧43-使用-netrw-管理文件系统">7.3. 技巧43 使用 netrw 管理文件系统</h3>
 <ul>
 <li>
 <p><code>:edit .</code> 打开文件管理器，并显示当前工作目录</p>
@@ -912,11 +777,11 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 <p>除:Explore 外，netrw 还提供了:Sexplore 及 :Vexplore命令，这两条命令分别在一个水平切分窗口及垂直切分窗口里打开文件管理器。</p>
 </li>
 </ul>
-<h2 id="技巧44-把文件保存到不存在的目录中">技巧44 把文件保存到不存在的目录中</h2>
+<h3 id="74-技巧44-把文件保存到不存在的目录中">7.4. 技巧44 把文件保存到不存在的目录中</h3>
 <ul>
 <li><code>:!mkdir -p %:h</code> -p 参数 创建任何不存在的中间目录</li>
 </ul>
-<h2 id="技巧45-以超级用户权限保存文件">技巧45 以超级用户权限保存文件</h2>
+<h3 id="75-技巧45-以超级用户权限保存文件">7.5. 技巧45 以超级用户权限保存文件</h3>
 <ul>
 <li><code>:w !sudo tee % &gt; /dev/null</code>
 <ul>
@@ -924,12 +789,12 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </ul>
 </li>
 </ul>
-<h1 id="第8章-用动作命令在文档中移动">第8章 用动作命令在文档中移动</h1>
-<h2 id="技巧46-让手指保持在本位行">技巧46 让手指保持在本位行</h2>
+<h2 id="8-第8章-用动作命令在文档中移动">8. 第8章 用动作命令在文档中移动</h2>
+<h3 id="81-技巧46-让手指保持在本位行">8.1. 技巧46 让手指保持在本位行</h3>
 <ul>
 <li>h j k l</li>
 </ul>
-<h2 id="技巧47-区分实际行与屏幕行">技巧47 区分实际行与屏幕行</h2>
+<h3 id="82-技巧47-区分实际行与屏幕行">8.2. 技巧47 区分实际行与屏幕行</h3>
 <ul>
 <li><code>gj gk</code> 是按照屏幕行向下及向上移动
 <ul>
@@ -987,7 +852,7 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </tr>
 </tbody>
 </table>
-<h2 id="技巧48-基于单词的移动">技巧48 基于单词的移动</h2>
+<h3 id="83-技巧48-基于单词的移动">8.3. 技巧48 基于单词的移动</h3>
 <table>
 <thead>
 <tr>
@@ -1018,7 +883,7 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 <li>一个单词由字母、下划线、数字，或其他非空白字符的序列组成，单词间以空白字符为间隔</li>
 <li>一个字串由空白字符序列组成，字串间以空白字符分隔</li>
 </ul>
-<h2 id="技巧49-对字符进行查找">技巧49 对字符进行查找</h2>
+<h3 id="84-技巧49-对字符进行查找">8.4. 技巧49 对字符进行查找</h3>
 <ul>
 <li><code>f{char}</code> 在光标位置与当前行尾政治家查找指定字符
 <ul>
@@ -1053,11 +918,11 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </tr>
 </tbody>
 </table>
-<h2 id="技巧50-通过查找进行移动">技巧50 通过查找进行移动</h2>
+<h3 id="85-技巧50-通过查找进行移动">8.5. 技巧50 通过查找进行移动</h3>
 <ul>
 <li>查找一个开动作</li>
 </ul>
-<h2 id="技巧51-用精确的文本对象选择区">技巧51 用精确的文本对象选择区</h2>
+<h3 id="86-技巧51-用精确的文本对象选择区">8.6. 技巧51 用精确的文本对象选择区</h3>
 <ul>
 <li>
 <p><code>a) 或 ab</code> <code>i) ib</code></p>
@@ -1084,7 +949,7 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 <p>at it</p>
 </li>
 </ul>
-<h2 id="技巧52-删除周边修改内部">技巧52 删除周边，修改内部</h2>
+<h3 id="87-技巧52-删除周边修改内部">8.7. 技巧52 删除周边，修改内部</h3>
 <table>
 <thead>
 <tr>
@@ -1127,7 +992,7 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </tr>
 </tbody>
 </table>
-<h2 id="技巧53-设置位置标记以便快速跳回">技巧53 设置位置标记，以便快速跳回</h2>
+<h3 id="88-技巧53-设置位置标记以便快速跳回">8.8. 技巧53 设置位置标记，以便快速跳回</h3>
 <table>
 <thead>
 <tr>
@@ -1166,15 +1031,15 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </tr>
 </tbody>
 </table>
-<h2 id="技巧54-在匹配括号间跳转">技巧54 在匹配括号间跳转</h2>
+<h3 id="89-技巧54-在匹配括号间跳转">8.9. 技巧54 在匹配括号间跳转</h3>
 <ul>
 <li>% 命令允许我们在一组开闭括号间跳转</li>
 </ul>
-<h1 id="第9章-在文件间跳转">第9章 在文件间跳转</h1>
-<h2 id="技巧55-遍历跳转列表">技巧55 遍历跳转列表</h2>
+<h2 id="9-第9章-在文件间跳转">9. 第9章 在文件间跳转</h2>
+<h3 id="91-技巧55-遍历跳转列表">9.1. 技巧55 遍历跳转列表</h3>
 <ul>
 <li>
-<p><C-o> <C-i> 命令允许对跳转列表进行遍历</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> 命令允许对跳转列表进行遍历</p>
 </li>
 <li>
 <p>:jumps 查看跳转列表</p>
@@ -1193,7 +1058,7 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 <td style="text-align:left">跳转到指定的行号</td>
 </tr>
 <tr>
-<td style="text-align:left">/patten<CR>/?pattern<CR>/n/N</td>
+<td style="text-align:left">/patten<!-- raw HTML omitted -->/?pattern<!-- raw HTML omitted -->/n/N</td>
 <td style="text-align:left">跳转到下一个/上一个模式出现之处</td>
 </tr>
 <tr>
@@ -1221,20 +1086,20 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 <td style="text-align:left">跳转到光标下的关键字的定义之处</td>
 </tr>
 <tr>
-<td style="text-align:left">&lsquo;<mark>/斜撇<mark></td>
+<td style="text-align:left">&lsquo;<!-- raw HTML omitted -->/斜撇<!-- raw HTML omitted --></td>
 <td style="text-align:left">跳转到一个位置标记</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>在插入模式中按一下 <C-i>，你会发现这和按 <Tab> 键的效果是一样的，因为Vim本来就把 <C-i> 和 <Tab> 当成同一个东西。</li>
+<li>在插入模式中按一下 <!-- raw HTML omitted -->，你会发现这和按 <!-- raw HTML omitted --> 键的效果是一样的，因为Vim本来就把 <!-- raw HTML omitted --> 和 <!-- raw HTML omitted --> 当成同一个东西。</li>
 </ul>
-<h2 id="技巧56-遍历改变列表">技巧56 遍历改变列表</h2>
-<h2 id="技巧57-跳转到光标下的文件">技巧57 跳转到光标下的文件</h2>
-<h2 id="技巧58-用全局位置标记在文件间快速跳转">技巧58 用全局位置标记在文件间快速跳转</h2>
-<h1 id="第10章-复制与粘贴">第10章 复制与粘贴</h1>
-<h2 id="技巧59-用无名寄存器实现删除复制与粘贴操作">技巧59 用无名寄存器实现删除、复制与粘贴操作</h2>
-<h2 id="技巧60-深入理解vim寄存器">技巧60 深入理解Vim寄存器</h2>
+<h3 id="92-技巧56-遍历改变列表">9.2. 技巧56 遍历改变列表</h3>
+<h3 id="93-技巧57-跳转到光标下的文件">9.3. 技巧57 跳转到光标下的文件</h3>
+<h3 id="94-技巧58-用全局位置标记在文件间快速跳转">9.4. 技巧58 用全局位置标记在文件间快速跳转</h3>
+<h2 id="10-第10章-复制与粘贴">10. 第10章 复制与粘贴</h2>
+<h3 id="101-技巧59-用无名寄存器实现删除复制与粘贴操作">10.1. 技巧59 用无名寄存器实现删除、复制与粘贴操作</h3>
+<h3 id="102-技巧60-深入理解vim寄存器">10.2. 技巧60 深入理解Vim寄存器</h3>
 <ul>
 <li>
 <p>&ldquo;{register} 指定要使用的寄存器</p>
@@ -1272,7 +1137,7 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 <li>
 <p>表达式寄存器 (&quot;=)</p>
 <ul>
-<li>当我们从表达式寄存器获取内容时，Vim将跳到命令行模式，并显示提示符“=”。这时，我们可以输入一段Vim脚本表达式并按<CR>执行，如果返回的是字符串（或者可被强制转换成字符串的数据），Vim将会使用它。</li>
+<li>当我们从表达式寄存器获取内容时，Vim将跳到命令行模式，并显示提示符“=”。这时，我们可以输入一段Vim脚本表达式并按<!-- raw HTML omitted -->执行，如果返回的是字符串（或者可被强制转换成字符串的数据），Vim将会使用它。</li>
 </ul>
 </li>
 </ul>
@@ -1306,8 +1171,8 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </tr>
 </tbody>
 </table>
-<h2 id="技巧61-用寄存器中的内容替换高亮选区的文本">技巧61 用寄存器中的内容替换高亮选区的文本</h2>
-<h2 id="技巧62-把寄存器的内容粘贴出来">技巧62 把寄存器的内容粘贴出来</h2>
+<h3 id="103-技巧61-用寄存器中的内容替换高亮选区的文本">10.3. 技巧61 用寄存器中的内容替换高亮选区的文本</h3>
+<h3 id="104-技巧62-把寄存器的内容粘贴出来">10.4. 技巧62 把寄存器的内容粘贴出来</h3>
 <ul>
 <li>
 <p>p命令把寄存器中的文本粘贴到光标之后</p>
@@ -1316,9 +1181,9 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 <p>P命令把寄存器中的文本粘贴到光标之前</p>
 </li>
 </ul>
-<h2 id="技巧63-与系统剪贴板进行交互">技巧63 与系统剪贴板进行交互</h2>
-<h1 id="第11章-宏">第11章 宏</h1>
-<h2 id="技巧64-宏的读取与执行">技巧64 宏的读取与执行</h2>
+<h3 id="105-技巧63-与系统剪贴板进行交互">10.5. 技巧63 与系统剪贴板进行交互</h3>
+<h2 id="11-第11章-宏">11. 第11章 宏</h2>
+<h3 id="111-技巧64-宏的读取与执行">11.1. 技巧64 宏的读取与执行</h3>
 <ul>
 <li>
 <p>q 键既是“录制”按钮，也是“停止”按钮</p>
@@ -1333,17 +1198,17 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </ul>
 </li>
 </ul>
-<h2 id="技巧65-规范光标位置直达目标以及中止宏">技巧65 规范光标位置、直达目标以及中止宏</h2>
-<h2 id="技巧66-加次数回放宏">技巧66 加次数回放宏</h2>
-<h2 id="技巧67-在连续的文本行上重复修改">技巧67 在连续的文本行上重复修改</h2>
+<h3 id="112-技巧65-规范光标位置直达目标以及中止宏">11.2. 技巧65 规范光标位置、直达目标以及中止宏</h3>
+<h3 id="113-技巧66-加次数回放宏">11.3. 技巧66 加次数回放宏</h3>
+<h3 id="114-技巧67-在连续的文本行上重复修改">11.4. 技巧67 在连续的文本行上重复修改</h3>
 <ul>
 <li>~ 将某单词第一个字母大写</li>
 </ul>
-<h2 id="技巧68-给宏追加命令">技巧68 给宏追加命令</h2>
+<h3 id="115-技巧68-给宏追加命令">11.5. 技巧68 给宏追加命令</h3>
 <ul>
 <li>在我们输入qa时，Vim将开始录制接下来的按键操作，并将它们保存到寄存器a中，这会覆盖该寄存器原有的内容。如果我们输入的是 qA 的话，Vim 也会录制按键操作，但会把它们附加到寄存器a原有的内容之后。</li>
 </ul>
-<h2 id="技巧69-在一组文件中执行宏">技巧69 在一组文件中执行宏</h2>
+<h3 id="116-技巧69-在一组文件中执行宏">11.6. 技巧69 在一组文件中执行宏</h3>
 <ul>
 <li>
 <p>以并行方式执行此宏</p>
@@ -1358,23 +1223,23 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 <p>以串行方式执行宏</p>
 </li>
 </ul>
-<h2 id="技巧70-用迭代求值的方式给列表编号">技巧70 用迭代求值的方式给列表编号</h2>
-<h2 id="技巧71-编辑宏的内容">技巧71 编辑宏的内容</h2>
-<h1 id="第12章-按模式匹配及按原义匹配">第12章 按模式匹配及按原义匹配</h1>
-<h2 id="技巧72-调整查找模式的大小写敏感性">技巧72 调整查找模式的大小写敏感性</h2>
+<h3 id="117-技巧70-用迭代求值的方式给列表编号">11.7. 技巧70 用迭代求值的方式给列表编号</h3>
+<h3 id="118-技巧71-编辑宏的内容">11.8. 技巧71 编辑宏的内容</h3>
+<h2 id="12-第12章-按模式匹配及按原义匹配">12. 第12章 按模式匹配及按原义匹配</h2>
+<h3 id="121-技巧72-调整查找模式的大小写敏感性">12.1. 技巧72 调整查找模式的大小写敏感性</h3>
 <ul>
 <li>通过使用元字符 \c 与 \C，可以覆盖Vim缺省的大小写敏感性设置。</li>
 </ul>
-<h2 id="技巧73-按正则表达式查找时使用v模式开关">技巧73 按正则表达式查找时，使用\v模式开关</h2>
+<h3 id="122-技巧73-按正则表达式查找时使用v模式开关">12.2. 技巧73 按正则表达式查找时，使用\v模式开关</h3>
 <ul>
 <li>我们可以利用 \v 模式开关来统一所有特殊符号的规则。该元字符将会激活 verymagic搜索模式，即假定除_、大小写字母以及数字0到9之外的所有字符都具有特殊含义</li>
 </ul>
-<h2 id="技巧74-按原义查找文本时使用v原义开关">技巧74 按原义查找文本时，使用\V原义开关</h2>
+<h3 id="123-技巧74-按原义查找文本时使用v原义开关">12.3. 技巧74 按原义查找文本时，使用\V原义开关</h3>
 <ul>
 <li>在正则表达式中使用的特殊字符，在按模式查找时用起来很顺手，但如果我们想按原义查找文本时，它们就变成了阻碍。使用very nomagic 原义开关，可以消除附加在 .、* 以及 ? 等大多数字符上的特殊含义。</li>
 </ul>
-<h2 id="技巧75-使用圆括号捕获子匹配">技巧75 使用圆括号捕获子匹配</h2>
-<h2 id="技巧76-界定单词的边界">技巧76 界定单词的边界</h2>
+<h3 id="124-技巧75-使用圆括号捕获子匹配">12.4. 技巧75 使用圆括号捕获子匹配</h3>
+<h3 id="125-技巧76-界定单词的边界">12.5. 技巧76 界定单词的边界</h3>
 <ul>
 <li>
 <p>在 very magic 搜索模式下，用 &lt;与&gt; 符号表示单词定界符</p>
@@ -1383,7 +1248,7 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 <p>我们可以在圆括号前面加上%，指示Vim不要将括号内的内容赋给寄存器 \1</p>
 </li>
 </ul>
-<h2 id="技巧77-界定匹配的边界">技巧77 界定匹配的边界</h2>
+<h3 id="126-技巧77-界定匹配的边界">12.6. 技巧77 界定匹配的边界</h3>
 <ul>
 <li>
 <p>有时候，我们可能想指定一个范围较广的模式，但只对匹配结果的一部分感兴趣。Vim中的元字符\zs与 \ze可以帮助我们处理这种情况。</p>
@@ -1395,7 +1260,7 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </ul>
 </li>
 </ul>
-<h2 id="技巧78-转义问题字符">技巧78 转义问题字符</h2>
+<h3 id="127-技巧78-转义问题字符">12.7. 技巧78 转义问题字符</h3>
 <ul>
 <li>
 <p>当进行正向查找时，我们必须要转义符号 /。而且无论执行的是 very magic查找（使用模式开关 \v）还是 verynomagic 查找（使用原义开关\V），都需要转义</p>
@@ -1404,8 +1269,8 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 <p>反向查找时要转义?号</p>
 </li>
 </ul>
-<h1 id="第13章-查找">第13章 查找</h1>
-<h2 id="技巧79-结识查找命令">技巧79 结识查找命令</h2>
+<h2 id="13-第13章-查找">13. 第13章 查找</h2>
+<h3 id="131-技巧79-结识查找命令">13.1. 技巧79 结识查找命令</h3>
 <ul>
 <li>
 <p>指定查找的方向</p>
@@ -1421,12 +1286,12 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </ul>
 </li>
 </ul>
-<h2 id="技巧80-高亮查找匹配">技巧80 高亮查找匹配</h2>
-<h2 id="技巧81-在执行查找前预览第一处匹配">技巧81 在执行查找前预览第一处匹配</h2>
+<h3 id="132-技巧80-高亮查找匹配">13.2. 技巧80 高亮查找匹配</h3>
+<h3 id="133-技巧81-在执行查找前预览第一处匹配">13.3. 技巧81 在执行查找前预览第一处匹配</h3>
 <ul>
 <li>incsearch</li>
 </ul>
-<h2 id="技巧82-统计当前模式的匹配个数">技巧82 统计当前模式的匹配个数</h2>
+<h3 id="134-技巧82-统计当前模式的匹配个数">13.4. 技巧82 统计当前模式的匹配个数</h3>
 <ul>
 <li>虽然没有任何方法可以让查找命令统计当前文档中的匹配个数，但是用下面这条命令就可以做到这一点：
 <ul>
@@ -1435,32 +1300,32 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </ul>
 </li>
 </ul>
-<h2 id="技巧83-将光标偏移到查找匹配的结尾">技巧83 将光标偏移到查找匹配的结尾</h2>
+<h3 id="135-技巧83-将光标偏移到查找匹配的结尾">13.5. 技巧83 将光标偏移到查找匹配的结尾</h3>
 <ul>
 <li>
 <p>/e</p>
 <ul>
-<li>我们使用 /lang/e<CR>进行查找，该命令会像我们期望的那样，将光标置于查找匹配的结尾</li>
+<li>我们使用 /lang/e<!-- raw HTML omitted -->进行查找，该命令会像我们期望的那样，将光标置于查找匹配的结尾</li>
 </ul>
 </li>
 <li>
 <p>当我们把查找域留空时，Vim将重用上一次的查找模式，因此，该命令将使用偏移重复上一次查找。</p>
 </li>
 </ul>
-<h2 id="技巧84-对完整的查找匹配进行操作">技巧84 对完整的查找匹配进行操作</h2>
+<h3 id="136-技巧84-对完整的查找匹配进行操作">13.6. 技巧84 对完整的查找匹配进行操作</h3>
 <ul>
-<li>我们将 //e<CR>作为一个动作命令使用，其范围涵盖由查找匹配的起始到结尾之间的全部内容。</li>
+<li>我们将 //e<!-- raw HTML omitted -->作为一个动作命令使用，其范围涵盖由查找匹配的起始到结尾之间的全部内容。</li>
 </ul>
-<h2 id="技巧85-利用查找历史迭代完成复杂的模式">技巧85 利用查找历史，迭代完成复杂的模式</h2>
+<h3 id="137-技巧85-利用查找历史迭代完成复杂的模式">13.7. 技巧85 利用查找历史，迭代完成复杂的模式</h3>
 <ul>
 <li>用q/ 调出命令行窗口。此窗口与一个常规的 Vim缓冲区差不多，不过它的内容是查找历史，每行显示一条（参见结识命令行窗口）</li>
 </ul>
-<h2 id="技巧86-查找当前高亮选区中的文本">技巧86 查找当前高亮选区中的文本</h2>
+<h3 id="138-技巧86-查找当前高亮选区中的文本">13.8. 技巧86 查找当前高亮选区中的文本</h3>
 <ul>
 <li>在可视模式下，* 命令将查找光标下的单词</li>
 </ul>
-<h1 id="第14章-替换">第14章 替换</h1>
-<h2 id="技巧87-结识substitute命令">技巧87 结识substitute命令</h2>
+<h2 id="14-第14章-替换">14. 第14章 替换</h2>
+<h3 id="141-技巧87-结识substitute命令">14.1. 技巧87 结识substitute命令</h3>
 <ul>
 <li>
 <p>:[range]s[ubstitute]/{pattern}/{string}/[flags]</p>
@@ -1524,7 +1389,7 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </tr>
 </tbody>
 </table>
-<h2 id="技巧88-在文件范围内查找并替换每一处匹配">技巧88 在文件范围内查找并替换每一处匹配</h2>
+<h3 id="142-技巧88-在文件范围内查找并替换每一处匹配">14.2. 技巧88 在文件范围内查找并替换每一处匹配</h3>
 <ul>
 <li>在缺省情况下，substitute命令仅仅作用于当前行，而且只会修改第一处匹配。因此，为了在整个文件的范围内修改每一处匹配，我们必须指定范围，并使用标志位 g
 <ul>
@@ -1532,17 +1397,17 @@ Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为
 </ul>
 </li>
 </ul>
-<h2 id="技巧89-手动控制每一次替换操作">技巧89 手动控制每一次替换操作</h2>
+<h3 id="143-技巧89-手动控制每一次替换操作">14.3. 技巧89 手动控制每一次替换操作</h3>
 <ul>
 <li>我们可以用标志位c控制:substitute命令的行为。</li>
 </ul>
-<h2 id="技巧90-重用上次的查找模式">技巧90 重用上次的查找模式</h2>
-<h2 id="技巧91-用寄存器的内容替换">技巧91 用寄存器的内容替换</h2>
+<h3 id="144-技巧90-重用上次的查找模式">14.4. 技巧90 重用上次的查找模式</h3>
+<h3 id="145-技巧91-用寄存器的内容替换">14.5. 技巧91 用寄存器的内容替换</h3>
 <ul>
-<li>通过输入 <C-r>{register}，我们可以将寄存器的内容插入到命令行。
+<li>通过输入 <!-- raw HTML omitted -->{register}，我们可以将寄存器的内容插入到命令行。
 search/tag-heirarchy.rb</li>
 </ul>
-<h2 id="技巧92-重复上一次substitute命令">技巧92 重复上一次substitute命令</h2>
+<h3 id="146-技巧92-重复上一次substitute命令">14.6. 技巧92 重复上一次substitute命令</h3>
 <ul>
 <li>:%s//～/&amp;
 <ul>
@@ -1551,12 +1416,12 @@ search/tag-heirarchy.rb</li>
 </ul>
 </li>
 </ul>
-<h2 id="技巧93-使用子匹配重排csv文件的字段">技巧93 使用子匹配重排CSV文件的字段</h2>
-<h2 id="技巧94-在替换过程中执行算术运算">技巧94 在替换过程中执行算术运算</h2>
+<h3 id="147-技巧93-使用子匹配重排csv文件的字段">14.7. 技巧93 使用子匹配重排CSV文件的字段</h3>
+<h3 id="148-技巧94-在替换过程中执行算术运算">14.8. 技巧94 在替换过程中执行算术运算</h3>
 <ul>
 <li>在Vim中，通过调用函数submatch(0)，即可得到当前匹配的内容</li>
 </ul>
-<h2 id="技巧95-交换两个或更多的单词">技巧95 交换两个或更多的单词</h2>
+<h3 id="149-技巧95-交换两个或更多的单词">14.9. 技巧95 交换两个或更多的单词</h3>
 <ul>
 <li>
 <p>至于替换的内容，我们必须通过执行一小段Vim脚本才能获得。这意味着要在替换域中使用符号
@@ -1566,7 +1431,7 @@ search/tag-heirarchy.rb</li>
 <p>采用字典的设定</p>
 </li>
 </ul>
-<h2 id="技巧96-在多个文件中执行查找与替换">技巧96 在多个文件中执行查找与替换</h2>
+<h3 id="1410-技巧96-在多个文件中执行查找与替换">14.10. 技巧96 在多个文件中执行查找与替换</h3>
 <ul>
 <li>
 <p>元字符 \ze的目的是排除匹配中的单词</p>
@@ -1578,8 +1443,8 @@ search/tag-heirarchy.rb</li>
 </ul>
 </li>
 </ul>
-<h1 id="第15章-global命令">第15章 global命令</h1>
-<h2 id="技巧97-结识global命令">技巧97 结识global命令</h2>
+<h2 id="15-第15章-global命令">15. 第15章 global命令</h2>
+<h3 id="151-技巧97-结识global命令">15.1. 技巧97 结识global命令</h3>
 <ul>
 <li>:global命令通常采用以下形式
 <ul>
@@ -1589,11 +1454,11 @@ search/tag-heirarchy.rb</li>
 </ul>
 </li>
 </ul>
-<h2 id="技巧98-删除所有包含模式的文本行">技巧98 删除所有包含模式的文本行</h2>
+<h3 id="152-技巧98-删除所有包含模式的文本行">15.2. 技巧98 删除所有包含模式的文本行</h3>
 <ul>
 <li>:vglobal 或简写的 :v命令，恰好与 :g命令的操作相反。也就是说，它用于在指定模式的非匹配行上执行Ex命令。</li>
 </ul>
-<h2 id="技巧99-将todo项收集至寄存器">技巧99 将TODO项收集至寄存器</h2>
+<h3 id="153-技巧99-将todo项收集至寄存器">15.3. 技巧99 将TODO项收集至寄存器</h3>
 <ul>
 <li>
 <p>通过把 :global 和 :yank 这两条命令结合在一起，我们可以把所有匹配{pattern}的文本行收集到某个寄存器中。</p>
@@ -1602,7 +1467,7 @@ search/tag-heirarchy.rb</li>
 <p>要用大写字母A引用寄存器。这意味着Vim将把内容附加到指定的寄存器，而用小写字母a的话，则会覆盖原有寄存器的内容。</p>
 </li>
 </ul>
-<h2 id="技巧100-将css文件中所有规则的属性按照字母排序">技巧100 将CSS文件中所有规则的属性按照字母排序</h2>
+<h3 id="154-技巧100-将css文件中所有规则的属性按照字母排序">15.4. 技巧100 将CSS文件中所有规则的属性按照字母排序</h3>
 <ul>
 <li>
 <p>:g/{pattern}/[range][cmd]</p>
@@ -1617,45 +1482,40 @@ search/tag-heirarchy.rb</li>
 </ul>
 </li>
 </ul>
-<h1 id="第16章-通过ctags建立索引并用其浏览源代码">第16章 通过ctags建立索引，并用其浏览源代码</h1>
-<h2 id="技巧101-结识ctags">技巧101 结识ctags</h2>
-<h2 id="技巧102-配置vim使用ctags">技巧102 配置Vim使用ctags</h2>
-<h2 id="技巧103-使用vim的标签跳转命令浏览关键字的定义">技巧103 使用Vim的标签跳转命令，浏览关键字的定义</h2>
-<h1 id="第17章-编译代码并通过quickfix列表浏览错误信息">第17章 编译代码，并通过Quickfix列表浏览错误信息</h1>
-<h2 id="技巧104-不用离开vim也能编译代码">技巧104 不用离开Vim也能编译代码</h2>
-<h2 id="技巧105-浏览quickfix列表">技巧105 浏览Quickfix列表</h2>
-<h2 id="技巧106-回溯以前的quickfix列表">技巧106 回溯以前的Quickfix列表</h2>
-<h2 id="技巧107-定制外部编译器">技巧107 定制外部编译器</h2>
-<h1 id="第18章-通过grepvimgrep以及其他工具对整个工程进行查找">第18章 通过grep、vimgrep以及其他工具对整个工程进行查找</h1>
-<h2 id="技巧108-不必离开vim也能调用grep">技巧108 不必离开Vim也能调用grep</h2>
-<h2 id="技巧109-定制grep程序">技巧109 定制grep程序</h2>
-<h2 id="技巧110-使用vim内部的grep">技巧110 使用Vim内部的Grep</h2>
-<h1 id="第19章-自动补全">第19章 自动补全</h1>
-<h2 id="技巧111-结识vim的关键字自动补全">技巧111 结识Vim的关键字自动补全</h2>
-<h2 id="技巧112-与自动补全的弹出式菜单进行交互">技巧112 与自动补全的弹出式菜单进行交互</h2>
-<h2 id="技巧113-掌握关键字的来龙去脉">技巧113 掌握关键字的来龙去脉</h2>
-<h2 id="技巧114-使用字典中的单词进行自动补全">技巧114 使用字典中的单词进行自动补全</h2>
-<h2 id="技巧115-自动补全整行文本">技巧115 自动补全整行文本</h2>
-<h2 id="技巧116-自动补全文件名">技巧116 自动补全文件名</h2>
-<h2 id="技巧117-根据上下文自动补全">技巧117 根据上下文自动补全</h2>
-<h1 id="第20章-利用vim的拼写检查器查找并更正拼写错误">第20章 利用Vim的拼写检查器，查找并更正拼写错误</h1>
-<h2 id="技巧118-对你的工作进行拼写检查">技巧118 对你的工作进行拼写检查</h2>
-<h2 id="技巧119-使用其他拼写字典">技巧119 使用其他拼写字典</h2>
-<h2 id="技巧120-将单词添加到拼写文件中">技巧120 将单词添加到拼写文件中</h2>
-<h2 id="技巧121-在插入模式下更正拼写错误">技巧121 在插入模式下更正拼写错误</h2>
-</div><div id="comments"><div id="valine" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
-            </noscript></div></div></div>
-            </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.109.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">daoist1037</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
-        </div>
-    </footer></div>
-
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
-            </a>
-        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+<h2 id="16-第16章-通过ctags建立索引并用其浏览源代码">16. 第16章 通过ctags建立索引，并用其浏览源代码</h2>
+<h3 id="161-技巧101-结识ctags">16.1. 技巧101 结识ctags</h3>
+<h3 id="162-技巧102-配置vim使用ctags">16.2. 技巧102 配置Vim使用ctags</h3>
+<h3 id="163-技巧103-使用vim的标签跳转命令浏览关键字的定义">16.3. 技巧103 使用Vim的标签跳转命令，浏览关键字的定义</h3>
+<h2 id="17-第17章-编译代码并通过quickfix列表浏览错误信息">17. 第17章 编译代码，并通过Quickfix列表浏览错误信息</h2>
+<h3 id="171-技巧104-不用离开vim也能编译代码">17.1. 技巧104 不用离开Vim也能编译代码</h3>
+<h3 id="172-技巧105-浏览quickfix列表">17.2. 技巧105 浏览Quickfix列表</h3>
+<h3 id="173-技巧106-回溯以前的quickfix列表">17.3. 技巧106 回溯以前的Quickfix列表</h3>
+<h3 id="174-技巧107-定制外部编译器">17.4. 技巧107 定制外部编译器</h3>
+<h2 id="18-第18章-通过grepvimgrep以及其他工具对整个工程进行查找">18. 第18章 通过grep、vimgrep以及其他工具对整个工程进行查找</h2>
+<h3 id="181-技巧108-不必离开vim也能调用grep">18.1. 技巧108 不必离开Vim也能调用grep</h3>
+<h3 id="182-技巧109-定制grep程序">18.2. 技巧109 定制grep程序</h3>
+<h3 id="183-技巧110-使用vim内部的grep">18.3. 技巧110 使用Vim内部的Grep</h3>
+<h2 id="19-第19章-自动补全">19. 第19章 自动补全</h2>
+<h3 id="191-技巧111-结识vim的关键字自动补全">19.1. 技巧111 结识Vim的关键字自动补全</h3>
+<h3 id="192-技巧112-与自动补全的弹出式菜单进行交互">19.2. 技巧112 与自动补全的弹出式菜单进行交互</h3>
+<h3 id="193-技巧113-掌握关键字的来龙去脉">19.3. 技巧113 掌握关键字的来龙去脉</h3>
+<h3 id="194-技巧114-使用字典中的单词进行自动补全">19.4. 技巧114 使用字典中的单词进行自动补全</h3>
+<h3 id="195-技巧115-自动补全整行文本">19.5. 技巧115 自动补全整行文本</h3>
+<h3 id="196-技巧116-自动补全文件名">19.6. 技巧116 自动补全文件名</h3>
+<h3 id="197-技巧117-根据上下文自动补全">19.7. 技巧117 根据上下文自动补全</h3>
+<h2 id="20-第20章-利用vim的拼写检查器查找并更正拼写错误">20. 第20章 利用Vim的拼写检查器，查找并更正拼写错误</h2>
+<h3 id="201-技巧118-对你的工作进行拼写检查">20.1. 技巧118 对你的工作进行拼写检查</h3>
+<h3 id="202-技巧119-使用其他拼写字典">20.2. 技巧119 使用其他拼写字典</h3>
+<h3 id="203-技巧120-将单词添加到拼写文件中">20.3. 技巧120 将单词添加到拼写文件中</h3>
+<h3 id="204-技巧121-在插入模式下更正拼写错误">20.4. 技巧121 在插入模式下更正拼写错误</h3>
+</div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.109.0">Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.17-RC"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="/"></a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Back to Top"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">Theme FixIt works best with JavaScript enabled.</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/lunr/lunr.min.js" defer></script><script src="/lib/lazysizes/lazysizes.min.js" async defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30}};</script><script src="/js/theme.min.js" defer></script></body>
 </html>

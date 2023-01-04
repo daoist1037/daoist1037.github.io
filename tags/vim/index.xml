@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>All Posts - daoist1037</title>
-    <link>https://daoist1037.github.io/posts/</link>
-    <description>All Posts | daoist1037</description>
-    <generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 04 Jan 2023 10:46:53 &#43;0800</lastBuildDate><atom:link href="https://daoist1037.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>vim - Tag - daoist1037</title>
+    <link>https://daoist1037.github.io/tags/vim/</link>
+    <description>vim - Tag - daoist1037</description>
+    <generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 04 Jan 2023 10:46:53 &#43;0800</lastBuildDate><atom:link href="https://daoist1037.github.io/tags/vim/" rel="self" type="application/rss+xml" /><item>
   <title>100 Practice</title>
   <link>https://daoist1037.github.io/posts/100-practice/</link>
   <pubDate>Wed, 04 Jan 2023 10:46:53 &#43;0800</pubDate>
