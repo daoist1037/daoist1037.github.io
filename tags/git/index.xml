@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on daoist1037</title>
+    <link>https://daoist1037.github.io/tags/git/</link>
+    <description>Recent content in git on daoist1037</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 28 Apr 2023 19:43:58 +0800</lastBuildDate><atom:link href="https://daoist1037.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从设计模式学习Git</title>
+      <link>https://daoist1037.github.io/post/git%E8%AE%B2%E8%A7%A3/</link>
+      <pubDate>Fri, 28 Apr 2023 19:43:58 +0800</pubDate>
+      
+      <guid>https://daoist1037.github.io/post/git%E8%AE%B2%E8%A7%A3/</guid>
+      <description>git讲解</description>
+    </item>
+    
+  </channel>
+</rss>
