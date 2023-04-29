@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://daoist1037.github.io/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://daoist1037.github.io/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://daoist1037.github.io/css/github.min.css' />
+    <link rel="stylesheet" href='https://daoist1037.github.io/css/github-style.css' />
+    <link rel="stylesheet" href='https://daoist1037.github.io/css/light.css' />
+    <link rel="stylesheet" href='https://daoist1037.github.io/css/dark.css' />
+    <link rel="stylesheet" href='https://daoist1037.github.io/css/syntax.css' />
+    <title>滑翔机六自由度动力学建模 - daoist1037</title>
+    
+    <link rel="icon" type="image/x-icon" href='/img/gear.png'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    <meta name="description"
+  content="滑翔机六自由度动力学建模" />
+<meta name="keywords"
+  content='blog, google analytics' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://daoist1037.github.io/post/%E6%B0%B4%E4%B8%8B%E8%88%AA%E8%A1%8C%E5%99%A8%E5%85%AD%E8%87%AA%E7%94%B1%E5%BA%A6%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%BB%BA%E6%A8%A1/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="滑翔机六自由度动力学建模 - daoist1037" />
+<meta name="twitter:description"
+  content="滑翔机六自由度动力学建模" />
+<meta name="twitter:site" content="https://daoist1037.github.io" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://daoist1037.github.io">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="滑翔机六自由度动力学建模 - daoist1037">
+<meta property="og:description"
+  content="滑翔机六自由度动力学建模" />
+<meta property="og:url" content="https://daoist1037.github.io/post/%E6%B0%B4%E4%B8%8B%E8%88%AA%E8%A1%8C%E5%99%A8%E5%85%AD%E8%87%AA%E7%94%B1%E5%BA%A6%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%BB%BA%E6%A8%A1/" />
+<meta property="og:site_name" content="滑翔机六自由度动力学建模" />
+<meta property="og:image"
+  content="https://daoist1037.github.io">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2023-04-29 16:21:14 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://daoist1037.github.io">
+        <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://daoist1037.github.io">
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://daoist1037.github.io">
+        <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+          width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+  
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://daoist1037.github.io">
+                  <img class=" avatar-user"
+                    src="https://daoist1037.github.io/images/avatar.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://daoist1037.github.io">daoist1037</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://daoist1037.github.io/post/%E6%B0%B4%E4%B8%8B%E8%88%AA%E8%A1%8C%E5%99%A8%E5%85%AD%E8%87%AA%E7%94%B1%E5%BA%A6%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%BB%BA%E6%A8%A1/">滑翔机六自由度动力学建模</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Sat, 29 Apr 2023 16:21:14 &#43;0800"
+                    class="no-wrap">
+                    Sat, 29 Apr 2023 16:21:14 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Sat, 29 Apr 2023 16:21:14 &#43;0800"
+                    class="no-wrap">
+                    Sat, 29 Apr 2023 16:21:14 &#43;0800</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      2767 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                    
+                    <a class="muted-link mr-3" href="/tags/6dot">
+                      <svg class="octicon octicon-tag" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z">
+                        </path>
+                      </svg>
+                      6dot
+                    </a>
+                    
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><h2 id="文献参考">文献参考</h2>
+<blockquote>
+<p>Spiraling motion of underwater gliders: Modeling, analysis, and experimental results</p>
+</blockquote>
+<p>文献中的滑翔机尾舵只包含垂直舵（即只用于稳定滑翔机纵垂面航行）；浮力调节机构为油馕的形式；质心调节机构包含俯仰与横滚两种（即质量块既可以平移运动，也可以旋转运动）。</p>
+<h2 id="1-坐标系">1. 坐标系</h2>
+<h3 id="11-坐标系定义">1.1 坐标系定义</h3>
+<p>在定义坐标系和滑翔机运动参数时，有以下基本假设：</p>
+<ol>
+<li>不考虑大地的曲率及自转，将其视为平面，因此，大地坐标系就是惯性参考体；</li>
+<li>流体介质在大地坐标系下是静止的，即不考虑海流与波浪；</li>
+<li>滑翔机为具有6自由度的定质量刚体。</li>
+</ol>
+<p>惯性坐标系 $\pmb{E_0}:(i,j,k)$ 、体坐标系 $\pmb{e_0}:(x,y,z)$ 、速度坐标系 $\pmb{\pi_0}:(\pi_1,\pi_2,\pi_3)$ 可参考下图。</p>
+<p><img src="/img/HUG/%E4%B8%89%E7%A7%8D%E5%9D%90%E6%A0%87%E7%B3%BB%E5%AE%9A%E4%B9%89.png" alt="三种坐标系定义"></p>
+<p>在体坐标系中，滑翔机的平移速度和角速度分别被定义为 $\pmb{V} = [V_1,V_2,V_3]^T$ 和 $\pmb{\Omega} = [p,q,r]^T$ 。在惯性坐标系中，滑翔机的位置与姿态分别用 $\pmb{ b }$ 和 $\pmb{ \theta }$ 描述，其中 $\pmb{ b }=[x,y,z]^T$ 和 $\pmb{\theta} = [\phi,\theta,\psi]^T$ 。</p>
+<h3 id="12-坐标系变换矩阵">1.2 坐标系变换矩阵</h3>
+<p>惯性坐标系中平移速度与速度坐标系中速度之间的关系为：</p>
+<p>$$
+\pmb{\dot{b}} = \pmb{R_{EB}}\pmb{V} \tag{1}
+$$</p>
+<p>其中， $\pmb{R_{EB}}$ 为体坐标系到惯性坐标系变换矩阵。</p>
+<p>$$
+\pmb{R_{EB}} =
+\begin{bmatrix}
+\cos{\theta}\cos{\psi} &amp; \sin{\phi}\sin{\theta}\cos{\psi} - \cos{\phi}\sin{\psi} &amp; \cos{\phi}\sin{\theta}\cos{\psi} + \sin{\phi}\sin{\psi} \\
+\cos{\theta}\sin{\psi} &amp; \sin{\phi}\sin{\theta}\sin{\psi} + \cos{\phi}\cos{\psi} &amp; \cos{\phi}\sin{\theta}\sin{\psi} - \sin{\phi}\cos{\psi} \\
+-\sin{\theta} &amp; \sin{\phi}\cos{\theta} &amp; \cos{\phi}\cos{\theta} \\
+\end{bmatrix}
+\tag{2}
+$$</p>
+<p>惯性坐标系中角速度与体坐标系中角速度关系为：</p>
+<p>$$
+\pmb{\dot{\theta}} =
+\begin{bmatrix}
+1 &amp; \sin{\phi}\tan{\theta} &amp; \cos{\phi}\tan{\theta} \\
+1 &amp; \cos{\phi} &amp; -\sin{\phi} \\
+0 &amp; \sin{\phi}\sec{\theta} &amp; \cos{\phi}\sec{\theta} \\
+\end{bmatrix} \pmb{\Omega}
+\tag{3}
+$$</p>
+<blockquote>
+<p>note: 参考文献为 Fossen, T.I., 2011. Handbook of Marine Craft Hydrodynamics and Motion Control. Wiley, UK.</p>
+</blockquote>
+<p>航行器在航行过程中相对流体介质的姿态可以用攻角 $\alpha$ 和侧滑角 $\beta$ 来描述，其中 $\tan{\alpha} = \frac{V_3}{V_1}, \sin{\beta} = \frac{V_2}{\sqrt{V_1^2+V_2^2+V_3^2}}$ 。</p>
+<h2 id="2-力学模型">2. 力学模型</h2>
+<p>下图展示了滑翔机的质量分布：滑翔机主静质量 $m_s$ ， 质心调节质量块 $m_r$ ，可调净浮力质量快 $m_b$ （该质量块表明了滑翔机总质量与总浮力的区别）。把质心调节质量块看成一个具有偏心量 $R_r$ 的半圆柱体，该质量块位于沿着体坐标系 $x$ 轴 $r_x$ ，绕 $x$ 轴 夹角 $\gamma$ 处。向量 $\pmb{q_{rE}} \quad \pmb{q_{bE}} \quad \pmb{q_{sE}}$ 为质心调节质量块质心、净浮力质量块质心、静质量块质心在惯性坐标系中的坐标。</p>
+<p><img src="/img/HUG/%E6%BB%91%E7%BF%94%E6%9C%BA%E8%B4%A8%E9%87%8F%E5%9D%97%E5%88%86%E5%B8%83%E5%9B%BE.png" alt="滑翔机质量块分布图"></p>
+<p>$m_b = 0$ 表明滑翔机排水质量等于质心调节质量加上滑翔机静质量，此时滑翔机处于 <code>neutrally buoyant</code> 。如果质心调节质量块处于初始位置，此时滑翔机相对于周围流体没有相对运动，处理水平状态。当 $m_b &gt; 0$ ，质心调节质量块 $m_r$ 向前移动使滑翔机以负俯仰角下潜；当 $m_b &lt; 0$ ，质心调节质量块 $m_r$ 向后移动使滑翔机以正俯仰角上浮。如下图所示。</p>
+<p><img src="/img/HUG/%E4%B8%8A%E6%B5%AE%E4%B8%8B%E6%BD%9C.png" alt="上浮下潜"></p>
+<p>除了线性平移，质心调节质量块 $m_r$ 还可以绕着滑翔机纵轴旋转来实现横滚。如下图所示。质心调节质量块的旋转一定角度，造成静态块的旋转偏移。因此，滑翔翼产生的升力在惯性坐标系中产生了一个沿 $j$ 的分量，作为旋转运动的向心力。</p>
+<p><img src="/img/HUG/%E6%A8%AA%E6%BB%9A.png" alt="横滚"></p>
+<h2 id="3-动力学模型">3. 动力学模型</h2>
+<h3 id="31-运动特性参数关系">3.1 运动特性参数关系</h3>
+<p>定义 $\pmb{p}$ 为惯性坐标系上的平移力，定义 $\pmb{\pi}$ 为惯性坐标系上的角力矩。定义 $\pmb{P}$ 为体坐标系上的平移力，定义 $\pmb{\Pi}$ 为体坐标系上的角力矩。质心调节质量块的平移与旋转由电机驱动，因为该质量块平移速度和旋转速度接近于0，故可忽略这方面的力与力矩。由此得到：</p>
+<p>$$
+\begin{equation}
+\begin{split}
+\pmb{\dot{p}} &amp;=
+\pmb{f_{ext}} + (m_s + m_r + m_b - m)g\pmb{k} \\
+\pmb{\dot{\pi}} &amp;=
+\pmb{q_{rE}} \times m_rg\pmb{k} +\pmb{q_{bE}} \times m_bg\pmb{k} + \pmb{q_{sE}} \times m_sg\pmb{k} + \pmb{\tau_{ext}}
+\end{split}
+\end{equation} \tag{4}
+$$</p>
+<p>其中， $\pmb{k}$ 为重力的单位方向向量，$\pmb{f_{ext}}$ 为滑翔翼产生的力， $\pmb{\tau_{ext}}$ 为外部力矩。</p>
+<blockquote>
+<p>note: 参考文献为 Graver, J., Leonard, N.E., 2001. Underwater glider dynamics and control. In: 12th International Symposium on Unmanned Untethered Submersible Technology, Durham, pp. 1–14.</p>
+</blockquote>
+<p>惯性坐标系上 $[\pmb{p}^T \quad \pmb{\pi}^T]^T$ 与 体坐标系上 $\pmb{\eta} = [\pmb{P}^T \quad \pmb{\Pi}^T]^T$ 的关系如下所示：</p>
+<p>$$
+\begin{equation}
+\begin{split}
+\pmb{p} &amp;=
+\pmb{R_{EB}} \pmb{P} \\
+\pmb{\pi} &amp;=
+\pmb{R_{EB}} \pmb{\Pi} + \pmb{b} \times \pmb{p}
+\end{split}
+\end{equation} \tag{5}
+$$</p>
+<p>定义 $\pmb{\eta} = [\pmb{V}^T \quad \pmb{\Omega}^T]^T$。 $\pmb{\eta}$ 和 $\pmb{v}$ 之间的关系为：</p>
+<p>$$
+\pmb{\eta} = \pmb{M}\pmb{v} \tag{6}
+$$</p>
+<p>其中，$\pmb{M}$ 是滑翔机的广义惯性矩阵。对式(6) 求导，可以得到广义力、广义速度、广义加速度之间的关系：</p>
+<p>$$
+\pmb{\dot{\eta}} = \pmb{\dot{M}}\pmb{v} + \pmb{M}\pmb{\dot{v}} \tag{7}
+$$</p>
+<p>之后，需要通过滑翔机的动量方程得到 $\pmb{\dot{M}} \quad \pmb{M} \quad \pmb{\dot{v}} \quad \pmb{v}$ 。</p>
+<h3 id="32-动量与角动量推导">3.2 动量与角动量推导</h3>
+<p>定义叉乘运算符号 $\hat{}$ 的含义如下所示，对于向量 $\pmb{a} = (a_1,a_2,a_3)$ 和 向量 $\pmb{b} = (b_1,b_2,b_3)$ 的叉乘运算如下式所示：</p>
+<p>$$
+\pmb{\hat{a}} =
+\begin{pmatrix}
+0 &amp; -a_3 &amp; a_2\\
+a_3 &amp; 0 &amp; -a_1 \\
+-a_2 &amp; a_1 &amp; 0
+\end{pmatrix}
+$$</p>
+<p>$$
+\pmb{a} \times \pmb{b} = \pmb{\hat{a}}\pmb{b} =
+\begin{pmatrix}
+0 &amp; -a_3 &amp; a_2\\
+a_3 &amp; 0 &amp; -a_1 \\
+-a_2 &amp; a_1 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+b_1 \\
+b_2 \\
+b_3
+\end{pmatrix}=
+\begin{pmatrix}
+a_2b_3-a_3b_2\\
+a_3b_1-a_1b_3\\
+a_1b_2-a_2b_2
+\end{pmatrix}
+$$</p>
+<p>且 $\pmb{\hat{a}}$ 具有以下性质：</p>
+<p>$$
+[\pmb{\hat{a}}]^T = -\pmb{\hat{a}}
+$$</p>
+<p>质心调节质量块在体坐标系中位置矢量为 $\pmb{r_r}$ 。定义体坐标系中滑翔机静质量块的广义平移速度和角速度为：</p>
+<p>$$
+\pmb{V_s} = \pmb{V} -\pmb{\hat{r_s}}\Omega\\
+\pmb{\Omega_s} = \pmb{\Omega}
+$$</p>
+<p>之后，可以得到静质量块的动量方程为：</p>
+<p>$$
+\begin{equation}
+\begin{split}
+T_s &amp;= \frac{1}{2} m_s \Vert\pmb{V_s}\Vert^2 + \frac{1}{2} \pmb{\Omega_s}\pmb{I_s}\pmb{\Omega_s}\\
+&amp;= \frac{1}{2}\pmb{v}^T\pmb{M_s}\pmb{v}
+\end{split}
+\end{equation}
+\tag{8}
+$$</p>
+<p>浮力调节机构的油腔位于滑翔机浮力的中心，因此滑翔机动力学模型的动量的惯性项与净浮力无关。下面分析质心调节质量块的动量。</p>
+<p>质心调节质量块在体坐标系中的位置矢量为：</p>
+<p>$$
+\pmb{r_r} = r_{rx} \pmb{x} + R_r(\cos(\gamma+\pi/2)\pmb{y} + \sin(\gamma+\pi/2)\pmb{z}) \tag{9}
+$$</p>
+<p>得到体坐标系中质心调节质量块的平移速度与角速度：</p>
+<p>$$
+\pmb{V_r} = \pmb{V} -\pmb{\hat{r_r}}\Omega \\
+\pmb{\Omega_r} = \pmb{\Omega} \tag{10}
+$$</p>
+<p>所以质心调节质量块的动量方程为：</p>
+<p>$$
+\begin{equation}
+\begin{split}
+T_r &amp;= \frac{1}{2} m_r \Vert\pmb{V_r}\Vert^2 + \frac{1}{2} \pmb{\Omega_r}\pmb{I_r(\gamma)}\pmb{\Omega_r}\\
+&amp;= \frac{1}{2}\pmb{v}^T\pmb{M_r}\pmb{v}
+\end{split}
+\end{equation}
+\tag{8}
+$$</p>
+<p>质心调节质量块的惯性矩阵是 $\gamma$ 的函数，为：</p>
+<p>$$
+\pmb{I_r(\gamma)} = \pmb{R_x^T(\gamma)} \pmb{I_r^0} \pmb{R_x^T(\gamma)} \tag{12}
+$$</p>
+<p>其中，$\pmb{R_x}$ 的表达式如下：</p>
+<p>$$\pmb{R_x} =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0\\
+0 &amp; \cos{\gamma} &amp; -\sin{\gamma} \\
+0 &amp; \sin{\gamma} &amp; \cos{\gamma} \\
+\end{bmatrix}
+$$</p>
+<p>当滑翔机在水中加速运动时，周围流体也在加速运动。这导致质量与惯性的变化（附加质量、附加惯性）。这些依赖于加速度的流体力学效应的形式由附加质量、附加惯性和交叉项表示。定义由附加质量 $\pmb{M_A}$ 、附加惯性 $\pmb{I_A}$ 、交叉项 $\pmb{C_A}$ 产生的动量为：</p>
+<p>$$
+T_f = \frac{1}{2}\pmb{v}^T\pmb{M_f}\pmb{v}  \tag{13}
+$$</p>
+<blockquote>
+<p>note: 参考文献为：Graver, J., Leonard, N.E., 2001. Underwater glider dynamics and control. In: 12th International Symposium on Unmanned Untethered Submersible Technology, Durham, pp. 1–14.</p>
+</blockquote>
+<p>其中， $\pmb{M_f}$ 表示为：</p>
+<p>$$
+\pmb{M_f}=
+\begin{bmatrix}
+\pmb{M_A} &amp; \pmb{C_A}\\
+\pmb{C_A^T} &amp; \pmb{I_A} \tag{14}
+\end{bmatrix}
+$$</p>
+<p>最终可以得到滑翔机和流体构成的整个系统的总动量：</p>
+<p>$$
+\begin{equation}
+\begin{split}
+T&amp;=T_r + T_s + T_f\\
+&amp;=\frac{1}{2}\pmb{v}^T\pmb{M}\pmb{v}
+\end{split}
+\end{equation}\tag{15}
+$$</p>
+<p>得到广义惯性矩阵为：</p>
+<p>$$
+\pmb{M} = \begin{bmatrix}
+\pmb{M_t} &amp; \pmb{C_t}\
+\pmb{C_t^T} &amp; \pmb{I_t}
+\end{bmatrix}
+$$</p>
+<p>其中，$\pmb{M_t} \quad \pmb{C_t} \quad \pmb{I_t}$ 表达式为：</p>
+<p>$$
+\begin{equation}
+\begin{split}
+\pmb{M_t} &amp;= (m_r+m_s)\pmb{I_3}+\pmb{M_A} \\
+\pmb{C_t} &amp;= \pmb{C_A} - m_s\pmb{\hat{r_s}}  - m_r\pmb{\hat{r_r}} \\
+\pmb{I_t} &amp;= \pmb{I_s} + \pmb{I_r(\gamma)} + \pmb{I_A} - m_s\pmb{\hat{r_s}}\pmb{\hat{r_s}}  - m_r\pmb{\hat{r_r}}\pmb{\hat{r_r}}
+\end{split}
+\end{equation}
+$$</p>
+<p>应用Legendre变换推导出线性动量和角动量的方程式（6），得到 $\pmb{\eta}$ 的导数为：</p>
+<p>$$
+\pmb{\dot{v}} = \begin{bmatrix}
+\pmb{\dot{V}} \\
+\pmb{\dot{\Omega}}
+\end{bmatrix}=
+\pmb{M^{-1}}(\pmb{\dot{\eta}} - \pmb{\dot{M}}\pmb{v})
+\tag{16}
+$$</p>
+<p>对公式(5)微分可得 $\pmb{\eta} \quad \pmb{v} \quad \pmb{\dot{\eta}} \quad \pmb{\dot{v}} \quad$ ：</p>
+<p>$$
+\begin{equation}
+\begin{split}
+\dot{\pmb{p}} &amp; = \pmb{R_{EB}}(\dot{\pmb{P}}+\hat{\pmb{\Omega}} \pmb{P}) \\
+\dot{\pmb{\pi}} &amp; = \pmb{R_{EB}}(\dot{\pmb{\Pi}}+\hat{\pmb{\Omega}} \pmb{\Pi})+\pmb{R_{EB}} \pmb{V} \times \pmb{p}+\pmb{b} \times \dot{\pmb{p}}
+\end{split}
+\end{equation} \tag{17}
+$$</p>
+<p>将公式(17) 应用到公式(4)得到：</p>
+<p>$$
+\begin{equation}
+\begin{split}
+\pmb{\dot{P}} = &amp;  \pmb{P} \times \pmb{\Omega}+m_{b} g(\pmb{R_{EB}^{T}} \pmb{k})+\pmb{R_{EB}^{T}} \pmb{f_{ext}} \\
+\pmb{\dot{\Pi}} = &amp; \pmb{\Pi} \times \pmb{\Omega}+\pmb{P} \times \pmb{V}+(m_{s} \pmb{r_s}+m_r \pmb{r_r}+m_b \pmb{r_b}) g \\
+&amp; \times(\pmb{R_{EB}^T} \pmb{k})+\pmb{R_{EB}^{T}} \pmb{\tau_{ext}}
+\end{split}
+\end{equation} \tag{18}
+$$</p>
+<p>将公式(18) 应用到公式(16)得到：</p>
+<p>$$
+\begin{equation}
+\begin{split}
+\pmb{\dot{v}} &amp;=  \pmb{M^{-1}} \begin{Bmatrix}
+-\pmb{\dot{M}v} +
+\begin{bmatrix}
+\pmb{P} \times \pmb{\Omega} \\
+-\pmb{M} v+\pmb{\Omega}+\pmb{P} \times \pmb{V}
+\end{bmatrix}+
+\begin{bmatrix}
+m_{b} g(\pmb{R_{EB}^{T}} \pmb{k}) \\
+(m_{r} \pmb{r_r}+m_{s} \pmb{r_s}+m_b\pmb{r_b}) g \times (\pmb{R_{EB}^{T}} \pmb{k})
+\end{bmatrix}+
+\begin{bmatrix}
+\pmb{F} \\
+\pmb{T}
+\end{bmatrix}
+\end{Bmatrix}\\
+\pmb{\dot{m}_b} &amp;=  \pmb{u_b}
+\end{split}
+\end{equation} \tag{19}
+$$</p>
+<h2 id="4-水动力">4. 水动力</h2>
+<p>在速度坐标系中，水动力 $\pmb{F_h} = [-D \quad SF \quad -L]^T$ 和水动力力矩  $\pmb{T_h} = [T_{DL1} \quad T_{DL2} \quad T_{DL3}]^T$ 表达式为：</p>
+<p>$$
+\begin{equation}
+\begin{split}
+D&amp;=(K_{{D} 0}+K_{{D}} \alpha^{2}) V^{2} \\
+SF&amp;=K_{\beta} \beta V^{2} \\
+L&amp;=(K_{{L} 0}+K_{\alpha} \alpha) V^{2} \\
+T_{{DL} 1}&amp;=(K_{{MR}} \beta+K_{{p}} p) V^{2} \\
+T_{{DL} 2}&amp;=(K_{{M} 0}+K_{{M}} \alpha+K_{{q}} q) V^{2} \\
+T_{{DL} 3}&amp;=(K_{{MY}} \beta+K_{{r}} r) V^{2}
+\end{split}
+\end{equation} \tag{20}
+$$</p>
+<p>旋转矩阵 $\pmb{R_{BC}}$ 表达式为：</p>
+<p>$$
+\pmb{R_{BC}} = \begin{bmatrix}
+\cos \alpha \cos \beta &amp; -\cos \alpha \sin \beta &amp; -\sin \alpha \\
+\sin \beta &amp; \cos \beta &amp; 0 \\
+\sin \alpha \cos \beta &amp; -\sin \alpha \sin \beta &amp; \cos \alpha<br>
+\end{bmatrix} \tag{21}
+$$</p>
+<p>旋转矩阵 $\pmb{R_{BC}}$ 将速度坐标系上水动力与水动力力矩变换到体坐标系上，如下所示：</p>
+<p>$$
+\begin{equation}
+\begin{split}
+\pmb{F} = \pmb{R_{BC}} \pmb{F_h}\\
+\pmb{T} = \pmb{R_{BC}} \pmb{T_h}
+\end{split}
+\end{equation} \tag{22}
+$$</p>
+<h2 id="5-附加质量与附加惯性">5. 附加质量与附加惯性</h2>
+<p>公式(14)中的附加项由切片理论得到。滑翔机外壳近似为圆筒外壳，可以将其视为 <code>prolated ellipsoid</code> ，在此基础上应用切片理论来计算得到附加质量、附加惯性。因为滑翔机有两个对称面 $\pmb{e_0-xz}$ 和 $\pmb{e_0-xy}$ ，则附加质量矩阵近似为对角矩阵，即：</p>
+<blockquote>
+<p>note: 参考文献为：Fossen, T.I., 2011. Handbook of Marine Craft Hydrodynamics and Motion Control. Wiley, UK.</p>
+</blockquote>
+<p>$$
+\pmb{M_A} =
+\begin{bmatrix}
+X_{\dot{u}} &amp; 0 &amp; 0 \\
+0 &amp; Y_{\dot{v}} &amp; 0 \\
+0 &amp; 0 &amp; Z_{\dot{w}}
+\end{bmatrix}
+$$</p>
+<p>其中 $X_{\dot{u}} \quad Y_{\dot{v}}\quad  Z_{\dot{w}}$ 分别是从三轴方向上的力产生的滑翔机周围加速流体质量。</p>
+<p>同样由于对称面，滑翔机的附加惯性矩阵也近似为对角矩阵。</p>
+<p>$$
+\pmb{M_A} =
+\begin{bmatrix}
+K_{\dot{}} &amp; 0 &amp; 0 \\
+0 &amp; M_{\dot{q}} &amp; 0 \\
+0 &amp; 0 &amp; N_{\dot{r}}
+\end{bmatrix}
+$$</p>
+<p>交叉项矩阵包含科里奥利项和向心项。</p>
+<p>$$
+\pmb{C_A}=
+\begin{bmatrix}
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; M_{\dot{w}} \\
+0 &amp; N_{\dot{v}} &amp; 0 \\
+\end{bmatrix}=\begin{bmatrix}
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; Y_{\dot{r}} \\
+0 &amp; Z_{\dot{q}} &amp; 0 \\
+\end{bmatrix}^T
+$$</p>
+<h2 id="6-切片理论">6. 切片理论</h2>
+<h2 id="7-水动力与水动力力矩">7. 水动力与水动力力矩</h2>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://daoist1037.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://daoist1037.github.io/css/toc.css' />
+
+<div id="gitalk-container" class="gitalk-container"></div>
+<link rel="stylesheet" href='https://daoist1037.github.io/css/gitalk.css'>
+<script src='https://daoist1037.github.io/js/gitalk.min.js'></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '26835ecf55f12af65177',
+    clientSecret: 'bd82074bd43878844d571f45fc940a52e118577c',
+    repo: 'daoist1037.github.io',
+    owner: 'daoist1037',
+    admin: ['daoist1037'],
+    id: eval("location.pathname"), 
+    distractionFreeMode: false 
+  });
+  (function() {
+    gitalk.render('gitalk-container');
+  })();
+</script>
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://daoist1037.github.io">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://daoist1037.github.io/js/github-style.js"></script>
+
+
+
+<script type="text/javascript" async
+  src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js"]
+        }
+      }
+    });
+
+    MathJax.Hub.Queue(function () {
+      
+      
+      
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+<style>
+  code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+  }
+</style>
+
+
+</html>
